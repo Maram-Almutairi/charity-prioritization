@@ -9,6 +9,16 @@
 
 ![لوحة القيادة](docs/screenshots/dashboard.png)
 
+## الروابط
+
+| | الرابط |
+|---|---|
+| الموقع (تجربة مباشرة) | https://maram-almutairi.github.io/charity-prioritization/ |
+| التقرير الكامل (PDF) | https://maram-almutairi.github.io/charity-prioritization/docs/report.pdf |
+| الملخص التنفيذي (PDF) | https://maram-almutairi.github.io/charity-prioritization/docs/executive_summary.pdf |
+| العرض التقديمي (PDF) | https://maram-almutairi.github.io/charity-prioritization/docs/presentation.pdf |
+| التقرير والملخص بصيغة Word | [docs/report.docx](docs/report.docx) · [docs/executive_summary.docx](docs/executive_summary.docx) |
+
 *A web tool that helps Saudi charities prioritise support by each family's current Need and near-term Risk, using an explainable model. Arabic RTL interface. Nothing is stored on the server.*
 
 ## ماذا تقدّم الأداة؟
