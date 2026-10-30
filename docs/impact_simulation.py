@@ -34,22 +34,30 @@ def main() -> None:
         "service_cutoff_warning": e.cutoff_warning == 1,
         "installment_above_sama_cap": e.debt_service_ratio > 1 / 3,
     }
+    # Fair comparison: the SAME number of families (k) under both methods.
     need_only = scored.sort_values("need_score", ascending=False).head(k).index
-    model_high = scored.index[scored.priority == "high"]
+    rank = {"high": 3, "medium": 2, "low": 1}
+    ours = (scored.assign(r=scored.priority.map(rank))
+            .sort_values(["r", "combined_score"], ascending=False).head(k).index)  # the site's ranking
     reach = {name: {"total": int(m.sum()),
-                    "need_only_top_quarter": int(m[need_only].sum()),
-                    "model_high_priority": int(m[model_high].sum())} for name, m in groups.items()}
+                    "need_only_top_k": int(m[need_only].sum()),
+                    "need_and_risk_top_k": int(m[ours].sum())} for name, m in groups.items()}
 
     rows = [{**families[i], **scored.iloc[i].to_dict(), "id": i} for i in range(n)]
+    total_deficit = float(scored.monthly_deficit.sum())
     budgets = {}
     for budget in (500_000, 1_000_000, 3_000_000):
         a = allocate(rows, budget)
+        # coverage = allocated / suggested support (deficit + 10% preventive buffer for risk >= 50);
+        # deficit_coverage = allocated / total monthly deficit only.
         budgets[str(budget)] = {k2: a[k2] for k2 in ("allocated_total", "total_target", "coverage", "uncovered")} | {
+            "deficit_coverage": round(a["allocated_total"] / total_deficit, 3),
             "by_tier": a["by_tier"],
             "families_fully_covered": sum(r["allocated"] >= r["target"] > 0 for r in a["rows"])}
 
     out = {
         "families": n, "capacity_top_quarter": k,
+        "model_high_priority_count": int((scored.priority == "high").sum()),
         "quadrants": scored.quadrant.value_counts().to_dict(),
         "priority_counts": scored.priority.value_counts().to_dict(),
         "needs_review": int(scored.needs_review.sum()),

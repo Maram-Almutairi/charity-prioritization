@@ -1,6 +1,7 @@
 {
   "families": 3000,
   "capacity_top_quarter": 750,
+  "model_high_priority_count": 812,
   "quadrants": {
     "monitor": 1604,
     "urgent": 609,
@@ -17,18 +18,18 @@
   "reach": {
     "prevent_quadrant": {
       "total": 494,
-      "need_only_top_quarter": 0,
-      "model_high_priority": 144
+      "need_only_top_k": 0,
+      "need_and_risk_top_k": 120
     },
     "service_cutoff_warning": {
       "total": 724,
-      "need_only_top_quarter": 269,
-      "model_high_priority": 345
+      "need_only_top_k": 269,
+      "need_and_risk_top_k": 322
     },
     "installment_above_sama_cap": {
       "total": 71,
-      "need_only_top_quarter": 56,
-      "model_high_priority": 71
+      "need_only_top_k": 56,
+      "need_and_risk_top_k": 71
     }
   },
   "budgets": {
@@ -37,6 +38,7 @@
       "total_target": 7521230.0,
       "coverage": 0.066,
       "uncovered": 1228,
+      "deficit_coverage": 0.074,
       "by_tier": {
         "high": {
           "families": 812,
@@ -61,6 +63,7 @@
       "total_target": 7521230.0,
       "coverage": 0.133,
       "uncovered": 1228,
+      "deficit_coverage": 0.148,
       "by_tier": {
         "high": {
           "families": 812,
@@ -85,6 +88,7 @@
       "total_target": 7521230.0,
       "coverage": 0.399,
       "uncovered": 1228,
+      "deficit_coverage": 0.445,
       "by_tier": {
         "high": {
           "families": 812,
