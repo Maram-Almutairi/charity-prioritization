@@ -6,7 +6,6 @@ Kept separate from Flask routes so it can be unit-tested directly. Holds no stat
 import sys
 from pathlib import Path
 
-import joblib
 import numpy as np
 import pandas as pd
 
@@ -42,8 +41,10 @@ def quadrant(need: float, risk: float) -> str:
 class Assessor:
     """Loads the trained model once and scores households."""
 
-    def __init__(self, model_path: Path = MODEL_PATH):
-        bundle = joblib.load(model_path)
+    def __init__(self, model_path: Path = MODEL_PATH, bundle: dict | None = None):
+        if bundle is None:
+            import joblib  # not needed when a bundle is passed (e.g. the in-browser version)
+            bundle = joblib.load(model_path)
         self.model = bundle["model"]
         self.kind = bundle["kind"]
         self.features = bundle["features"]

@@ -13,6 +13,7 @@ Usage:
 Outputs:
     model/artifacts/model.joblib     chosen model + metadata (used by backend/app.py)
     model/artifacts/metrics.json     all metrics for both models
+    model/artifacts/model_params.json  numpy-only copy of the chosen model (browser version)
     model/artifacts/tree_rules.txt   decision tree as text rules
     model/artifacts/fairness.csv     per-group performance of the chosen model (test set)
     docs/figures/*.png               charts for docs and presentation
@@ -43,6 +44,7 @@ from sklearn.preprocessing import StandardScaler  # noqa: E402
 from sklearn.tree import DecisionTreeClassifier, export_text, plot_tree  # noqa: E402
 
 from model.features import FEATURE_LABELS_AR, SELECTED, build_features  # noqa: E402
+from model.light_model import export_params  # noqa: E402
 
 DATA = ROOT / "data" / "raw" / "synthetic_households.csv"
 ARTIFACTS = ROOT / "model" / "artifacts"
@@ -244,6 +246,9 @@ def main() -> None:
                  "feature_labels": FEATURE_LABELS_AR, "metrics": metrics[chosen]},
                 ARTIFACTS / "model.joblib")
     (ARTIFACTS / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+    if chosen == "logreg":  # numpy-only copy for the in-browser (Pyodide) version of the site
+        params = export_params(final, chosen, SELECTED, FEATURE_LABELS_AR, metrics[chosen])
+        (ARTIFACTS / "model_params.json").write_text(json.dumps(params, ensure_ascii=False), encoding="utf-8")
     print(f"chosen: {chosen} -> {ARTIFACTS / 'model.joblib'}")
 
 

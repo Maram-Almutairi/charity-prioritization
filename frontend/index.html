@@ -267,6 +267,15 @@
   <!-- Print / PDF report (filled on demand) -->
   <section id="print-report" aria-hidden="true"></section>
 
+  <div class="dropveil" id="py-loading" hidden>
+    <div class="dropveil__card glass">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="28 86" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="1s" repeatCount="indefinite"/></circle></svg>
+      <p>تشغيل محرّك Python داخل المتصفح</p>
+      <small id="py-step" class="hint">يستغرق 10–20 ثانية في أول مرة فقط</small>
+    </div>
+  </div>
+
+  <script src="py.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

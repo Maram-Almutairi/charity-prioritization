@@ -237,3 +237,37 @@ def test_privacy_headers(client):
 
 def test_frontend_served(client):
     assert client.get("/").status_code == 200 and client.get("/app.js").status_code == 200
+
+
+# ---------- in-browser version (Pyodide) ----------
+def test_light_model_matches_sklearn():
+    """The numpy-only model used in the browser gives the same probabilities as scikit-learn."""
+    import joblib
+    import numpy as np
+    from model.light_model import load_bundle
+    sk = joblib.load(ROOT / "model/artifacts/model.joblib")["model"]
+    light = load_bundle(ROOT / "model/artifacts/model_params.json")["model"]
+    df = pd.read_csv(ROOT / "data/raw/synthetic_households.csv").head(500)
+    X = build_features(df)
+    assert np.allclose(sk.predict_proba(X), light.predict_proba(X), atol=1e-10)
+    assert list(sk.classes_) == list(light.classes_)
+
+
+def test_browser_dispatch_matches_server():
+    import json
+    from api_core import ApiCore
+    from model.light_model import load_bundle
+    from services import Assessor
+    core = ApiCore(Assessor(bundle=load_bundle(ROOT / "model/artifacts/model_params.json")),
+                   ROOT / "data/raw/synthetic_households.csv")
+    status, text = core.dispatch("/assess", json.dumps(BASE))
+    server = create_app().test_client().post("/api/assess", json=BASE).get_json()
+    browser = json.loads(text)
+    assert status == 200 and browser["priority"] == server["priority"]
+    assert browser["need_score"] == server["need_score"] and browser["confidence"] == server["confidence"]
+    status, text = core.dispatch("/assess", json.dumps({**BASE, "household_size": "x"}))
+    assert status == 422 and "household_size" in json.loads(text)["fields"]
+    status, data = core.dispatch("/import", "null", (ROOT / "data/samples/sample_messy.xlsx").read_bytes(), "m.xlsx")
+    assert status == 200 and json.loads(data)["summary"]["accepted"] == 25
+    status, data = core.dispatch("/template")
+    assert status == 200 and data[:2] == b"PK"
