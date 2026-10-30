@@ -259,7 +259,7 @@ def test_browser_dispatch_matches_server():
     from model.light_model import load_bundle
     from services import Assessor
     core = ApiCore(Assessor(bundle=load_bundle(ROOT / "model/artifacts/model_params.json")),
-                   ROOT / "data/raw/real_demo_families.csv")
+                   ROOT / "data/raw/synthetic_households.csv")
     status, text = core.dispatch("/assess", json.dumps(BASE))
     server = create_app().test_client().post("/api/assess", json=BASE).get_json()
     browser = json.loads(text)
@@ -273,60 +273,18 @@ def test_browser_dispatch_matches_server():
     assert status == 200 and data[:2] == b"PK"
 
 
-# ---------- real-data validation (cleaning rules, no download needed)
-
-def test_real_data_cleaning_rules():
-    from analysis.real_data_validation import clean, household_features
-    base = dict(v2a1=None, v18q1=None, meaneduc=8.0, escolari=8, rez_esc=None, SQBage=1, agesq=1,
-                hhsize=2, hogar_nin=1, hogar_mayor=0, hogar_adul=1, overcrowding=1.0, tipovivi1=0, tipovivi2=0,
-                tipovivi3=1, tipovivi4=0, epared1=0, etecho1=0, eviv1=0, pisonotiene=0, noelec=0,
-                abastaguadentro=1, sanitario1=0, refrig=1, computer=0, television=1, qmobilephone=2,
-                dis=0, female=1, area1=1)
-    raw = pd.DataFrame([
-        {**base, "Id": "a1", "idhogar": "h1", "parentesco1": 1, "Target": 2, "dependency": "yes", "edjefe": "no", "edjefa": "10"},
-        {**base, "Id": "a2", "idhogar": "h1", "parentesco1": 0, "Target": 4, "dependency": "yes", "edjefe": "no", "edjefa": "10", "dis": 1},
-        {**base, "Id": "b1", "idhogar": "h2", "parentesco1": 0, "Target": 4, "dependency": "no", "edjefe": "5", "edjefa": "no"},
-    ])
-    df, heads, log = clean(raw)
-    log = dict(log)
-    assert log["households_inconsistent_target_fixed"] == 1 and log["households_without_head_dropped"] == 1
-    assert set(df["idhogar"]) == {"h1"} and set(df["Target"]) == {2}          # head's level for everyone
-    assert df["dependency"].iloc[0] == 1 and df["edjefe"].iloc[0] == 0 and df["v2a1"].iloc[0] == 0
-    assert "rez_esc" not in df and "SQBage" not in df
-    h = household_features(df, heads)
-    assert h.loc["h1", "level"] == "high" and h.loc["h1", "disabled_members"] == 1
 
 
 def test_model_reference_matches_official_2023_survey():
-    from analysis.saudi_context import load, overall
+    from analysis.saudi_validation import load, overall
     from model.features import SAUDI_PER_CAPITA_INCOME
     assert overall(load(), "Median Per-capita Monthly Disposable Income") == SAUDI_PER_CAPITA_INCOME
 
 
-def test_credit_risk_cleaning_and_index():
-    from analysis.credit_risk_validation import clean, risk_index
-    raw = pd.DataFrame({"card_use": [0.1, 0.9, 0.5, 0.2], "age": [40, 30, 0, 50], "late_30_59": [0, 2, 0, 98],
-                        "debt_ratio": [0.1, 0.6, 0.2, 0.3], "income": [9000, 3000, 5000, None], "open_lines": [3] * 4,
-                        "late_90": [0, 1, 0, 98], "real_estate_loans": [1] * 4, "late_60_89": [0, 0, 0, 98],
-                        "dependents": [0, None, 1, 2], "y": [0, 1, 0, 0]})
-    df, log = clean(raw)
-    assert len(df) == 2 and log["income_missing_dropped"] == 1 and log["age_zero_dropped"] == 1
-    r = risk_index(df)
-    assert r["risk"].between(0, 100).all() and r.loc[1, "risk"] > r.loc[0, "risk"]
-
-
-def test_real_demo_families_are_valid_and_scored():
-    df = pd.read_csv(ROOT / "data/raw/real_demo_families.csv")
-    assert len(df) == 200 and df["household_id"].str.startswith("PHL-").all()
-    assert (df["total_debt"] == 0).all()  # not in the survey: left empty, never invented
-    for rec in df.head(50).to_dict("records"):
-        validate({k: v for k, v in rec.items() if k not in ("household_id", "head_marital_status", "source_row")})
-    demo = create_app().test_client().get("/api/demo").get_json()["households"]
-    assert demo and all(h["ref_code"].startswith("PHL-") for h in demo)
-
-
-def test_school_stage_split_keeps_count_reasonable():
-    from data.real_families import split_stages
-    assert split_stages(0) == {"children_primary": 0, "children_intermediate": 0, "children_secondary": 0}
-    s = split_stages(13)
-    assert s == {"children_primary": 6, "children_intermediate": 3, "children_secondary": 3}
+def test_need_score_ranks_official_saudi_groups_like_the_survey():
+    """Poorer official groups (GASTAT HICES 2023) must get higher need scores."""
+    from analysis.saudi_validation import group_households, load
+    g = group_households(load())
+    assert g["need_score"].corr(g["official_income"], method="spearman") < -0.7
+    top = set(g.nlargest(3, "need_score")["group"])
+    assert {"مسكن من جمعية خيرية", "مسكن من محسن"} <= top

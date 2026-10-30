@@ -1,0 +1,235 @@
+{
+  "source": {
+    "hices_2023": "https://data.kapsarc.org/explore/dataset/household-income-and-consumption-expenditure-survey/",
+    "license": "Public Domain",
+    "rows": 1592
+  },
+  "saudi_households": {
+    "avg_disposable_income": 18056.0,
+    "median_disposable_income": 13655.0,
+    "avg_per_capita_income": 3977.0,
+    "median_per_capita_income": 2896.0,
+    "avg_consumption_expenditure": 16028.0
+  },
+  "income_by_group": {
+    "all_saudi": 18056.0,
+    "widowed_head": 11082.0,
+    "divorced_head": 12143.0,
+    "housed_by_charity": 10004.0,
+    "housed_by_philanthropist": 9757.0,
+    "rented": 13202.0
+  },
+  "gap_vs_all_pct": {
+    "widowed_head": 38.6,
+    "divorced_head": 32.7,
+    "housed_by_charity": 44.6,
+    "housed_by_philanthropist": 46.0,
+    "rented": 26.9
+  },
+  "income_by_region": {
+    "نجران": 10979.0,
+    "المدينة المنورة": 12939.0,
+    "حائل": 13495.0,
+    "القصيم": 13958.0,
+    "جازان": 14010.0,
+    "تبوك": 14341.0,
+    "الباحة": 14471.0,
+    "الجوف": 14712.0,
+    "مكة المكرمة": 15577.0,
+    "عسير": 15820.0,
+    "الحدود الشمالية": 16427.0,
+    "الشرقية": 18661.0,
+    "الرياض": 25995.0
+  },
+  "consistency_test": {
+    "groups": 25,
+    "spearman_need_vs_income": -0.849,
+    "top5_need": [
+      {
+        "group": "مسكن من محسن",
+        "official_income": 9757.0,
+        "need_score": 21.4
+      },
+      {
+        "group": "مسكن من جمعية خيرية",
+        "official_income": 10004.0,
+        "need_score": 21.0
+      },
+      {
+        "group": "مسكن من أحد الأقارب",
+        "official_income": 11766.0,
+        "need_score": 17.6
+      },
+      {
+        "group": "مسكن مستأجر",
+        "official_income": 13202.0,
+        "need_score": 7.5
+      },
+      {
+        "group": "نجران",
+        "official_income": 10979.0,
+        "need_score": 7.3
+      }
+    ],
+    "table": [
+      {
+        "dimension": "marital_status",
+        "group": "ربّ الأسرة أرمل",
+        "official_income": 11082.0,
+        "need_score": 3.9
+      },
+      {
+        "dimension": "marital_status",
+        "group": "ربّ الأسرة مطلّق",
+        "official_income": 12143.0,
+        "need_score": 1.9
+      },
+      {
+        "dimension": "marital_status",
+        "group": "ربّ الأسرة متزوج",
+        "official_income": 19966.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "marital_status",
+        "group": "ربّ الأسرة لم يتزوج",
+        "official_income": 10391.0,
+        "need_score": 5.2
+      },
+      {
+        "dimension": "type_of_ownership",
+        "group": "مسكن ملك بلا قرض",
+        "official_income": 21302.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "type_of_ownership",
+        "group": "مسكن ملك بقرض",
+        "official_income": 22023.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "type_of_ownership",
+        "group": "مسكن مستأجر",
+        "official_income": 13202.0,
+        "need_score": 7.5
+      },
+      {
+        "dimension": "type_of_ownership",
+        "group": "مسكن من جمعية خيرية",
+        "official_income": 10004.0,
+        "need_score": 21.0
+      },
+      {
+        "dimension": "type_of_ownership",
+        "group": "مسكن من محسن",
+        "official_income": 9757.0,
+        "need_score": 21.4
+      },
+      {
+        "dimension": "type_of_ownership",
+        "group": "مسكن من أحد الأقارب",
+        "official_income": 11766.0,
+        "need_score": 17.6
+      },
+      {
+        "dimension": "type_of_ownership",
+        "group": "سكن من جهة العمل الحكومية",
+        "official_income": 22754.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "type_of_ownership",
+        "group": "سكن من جهة العمل الخاصة",
+        "official_income": 29989.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "region",
+        "group": "الرياض",
+        "official_income": 25995.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "region",
+        "group": "مكة المكرمة",
+        "official_income": 15577.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "region",
+        "group": "المدينة المنورة",
+        "official_income": 12939.0,
+        "need_score": 0.6
+      },
+      {
+        "dimension": "region",
+        "group": "القصيم",
+        "official_income": 13958.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "region",
+        "group": "الشرقية",
+        "official_income": 18661.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "region",
+        "group": "عسير",
+        "official_income": 15820.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "region",
+        "group": "تبوك",
+        "official_income": 14341.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "region",
+        "group": "حائل",
+        "official_income": 13495.0,
+        "need_score": 1.8
+      },
+      {
+        "dimension": "region",
+        "group": "الحدود الشمالية",
+        "official_income": 16427.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "region",
+        "group": "جازان",
+        "official_income": 14010.0,
+        "need_score": 4.9
+      },
+      {
+        "dimension": "region",
+        "group": "نجران",
+        "official_income": 10979.0,
+        "need_score": 7.3
+      },
+      {
+        "dimension": "region",
+        "group": "الباحة",
+        "official_income": 14471.0,
+        "need_score": 0.0
+      },
+      {
+        "dimension": "region",
+        "group": "الجوف",
+        "official_income": 14712.0,
+        "need_score": 2.0
+      }
+    ]
+  },
+  "calibration": {
+    "sufficiency_line_sar": 8926,
+    "synthetic_share_below_sufficiency_line": 0.871,
+    "saudi_households_avg_income_vs_line": 2.02,
+    "electricity_over_15pct_of_income_saudi_2019": 20.8,
+    "bills_over_15pct_of_income_synthetic": 49.2
+  },
+  "per_capita_reference_used_by_model": 2896
+}

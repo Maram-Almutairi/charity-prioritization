@@ -1,6 +1,6 @@
 """
-Build sample Excel files from REAL households (data/raw/real_demo_families.csv, built by
-data/real_families.py from the open FIES survey), in the same layout as the site's template.
+Build sample Excel files from the synthetic Saudi-calibrated households, in the same layout as
+the site's template.
 
 - data/samples/sample_families.xlsx : 40 clean families, ready to drag into the site.
 - data/samples/sample_messy.xlsx    : the same kind of sheet with the mistakes staff really
@@ -34,7 +34,7 @@ def as_sheet_rows(df: pd.DataFrame) -> list[list]:
         row = []
         for f in FIELDS:
             if f.name == "ref_code":
-                row.append(rec["household_id"])
+                row.append(f"R-{1001 + i}")
             elif f.kind == "choice":
                 row.append(CHOICES[f.name][rec[f.name]])
             else:
@@ -78,7 +78,7 @@ def make_messy(rows: list[list]) -> list[list]:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    df = pd.read_csv(ROOT / "data" / "raw" / "real_demo_families.csv").sample(40, random_state=11)
+    df = pd.read_csv(ROOT / "data" / "raw" / "synthetic_households.csv").sample(40, random_state=11)
     rows = as_sheet_rows(df)
     write(rows, OUT / "sample_families.xlsx")
     write(make_messy(rows), OUT / "sample_messy.xlsx")
