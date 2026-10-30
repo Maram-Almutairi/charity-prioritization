@@ -1,12 +1,12 @@
 ﻿group,value,label_ar,n,accuracy,n_high,recall_high,share_predicted_high
-has_health_or_disability,yes,مع إعاقة/حالة صحية,108,0.8981,41,0.9512,0.3981
-has_health_or_disability,no,بدون,492,0.8679,109,0.844,0.2297
-housing_status,owned,ملك,233,0.8927,31,0.8065,0.1245
-housing_status,rented,إيجار,291,0.8625,98,0.8776,0.3402
-housing_status,shelter,مأوى,76,0.8553,21,0.9524,0.3684
-income_source,stable,دخل ثابت,266,0.9023,12,0.8333,0.0526
-income_source,irregular,دخل متقطع,212,0.8632,71,0.8873,0.3443
-income_source,none,بلا دخل,122,0.8279,67,0.8657,0.5656
-size_band,1-3,1–3 أفراد,139,0.9137,26,0.9231,0.2086
-size_band,4-6,4–6 أفراد,294,0.8639,66,0.8182,0.2177
-size_band,7+,7 فأكثر,167,0.8563,58,0.9138,0.3772
+has_health_or_disability,yes,مع إعاقة/حالة صحية,103,0.9126,40,0.9,0.3786
+has_health_or_disability,no,بدون,497,0.8873,110,0.8636,0.2193
+housing_status,owned,ملك,236,0.8941,33,0.7879,0.1271
+housing_status,rented,إيجار,309,0.89,103,0.8835,0.3269
+housing_status,shelter,مأوى,55,0.8909,14,1.0,0.3091
+income_source,stable,دخل ثابت,280,0.9214,16,0.9375,0.0643
+income_source,irregular,دخل متقطع,193,0.8756,64,0.875,0.3264
+income_source,none,بلا دخل,127,0.8504,70,0.8571,0.5276
+size_band,1-3,1–3 أفراد,136,0.9338,25,0.92,0.1912
+size_band,4-6,4–6 أفراد,287,0.8746,60,0.8667,0.2091
+size_band,7+,7 فأكثر,177,0.887,65,0.8615,0.3503

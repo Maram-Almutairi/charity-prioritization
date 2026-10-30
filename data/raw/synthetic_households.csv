@@ -71,7 +71,7 @@ SYN-00068,3,0,0,1,0,5090.0,irregular,2960.0,rented,800.0,530.0,0.0,0.0,no,yes,ye
 SYN-00069,4,1,0,0,0,1950.0,irregular,3150.0,rented,1590.0,560.0,0.0,0.0,no,yes,yes,yes,medium,synthetic
 SYN-00070,6,0,1,0,1,6300.0,stable,5010.0,owned,0.0,840.0,100500.0,2010.0,no,yes,intermittent,yes,medium,synthetic
 SYN-00071,5,0,0,0,0,6050.0,stable,4960.0,rented,1280.0,520.0,89600.0,1830.0,no,yes,yes,yes,low,synthetic
-SYN-00072,4,1,1,0,0,3010.0,irregular,3470.0,owned,0.0,440.0,13300.0,440.0,no,yes,yes,no,medium,synthetic
+SYN-00072,4,1,1,0,0,3010.0,irregular,3470.0,owned,0.0,440.0,13300.0,440.0,no,yes,yes,no,low,synthetic
 SYN-00073,4,0,0,0,0,4270.0,irregular,4010.0,owned,0.0,790.0,17100.0,1000.0,no,yes,yes,yes,medium,synthetic
 SYN-00074,4,0,1,0,0,9940.0,stable,3680.0,rented,1950.0,490.0,0.0,0.0,no,yes,yes,intermittent,low,synthetic
 SYN-00075,7,0,0,1,1,3490.0,irregular,6560.0,shelter,0.0,860.0,7000.0,540.0,no,intermittent,yes,yes,high,synthetic
@@ -289,7 +289,7 @@ SYN-00286,5,0,1,0,0,3250.0,none,3930.0,rented,1650.0,740.0,5900.0,350.0,no,yes,y
 SYN-00287,8,2,0,0,0,6090.0,stable,6070.0,owned,0.0,580.0,66200.0,1320.0,no,intermittent,yes,intermittent,medium,synthetic
 SYN-00288,4,2,0,0,0,13860.0,stable,3900.0,owned,0.0,600.0,0.0,0.0,yes,yes,yes,yes,low,synthetic
 SYN-00289,3,0,1,0,0,6820.0,stable,2770.0,rented,1840.0,660.0,30600.0,2190.0,yes,intermittent,yes,yes,medium,synthetic
-SYN-00290,8,2,1,0,0,3210.0,irregular,6430.0,owned,0.0,650.0,37300.0,630.0,no,intermittent,yes,no,high,synthetic
+SYN-00290,8,2,1,0,0,3210.0,irregular,6430.0,owned,0.0,650.0,37300.0,630.0,no,intermittent,yes,no,medium,synthetic
 SYN-00291,6,0,1,1,0,6170.0,irregular,4910.0,owned,0.0,660.0,0.0,0.0,no,no,yes,yes,low,synthetic
 SYN-00292,7,1,0,0,1,10170.0,stable,3710.0,owned,0.0,630.0,0.0,0.0,no,yes,yes,yes,low,synthetic
 SYN-00293,1,0,0,0,0,4580.0,irregular,1820.0,owned,0.0,480.0,0.0,0.0,no,yes,no,yes,low,synthetic
@@ -962,7 +962,7 @@ SYN-00959,2,0,0,0,0,2600.0,irregular,2370.0,shelter,0.0,490.0,13600.0,540.0,no,y
 SYN-00960,6,1,0,0,0,4970.0,irregular,4930.0,rented,1890.0,780.0,0.0,0.0,no,yes,yes,yes,medium,synthetic
 SYN-00961,4,0,0,0,0,5210.0,irregular,3550.0,rented,1500.0,560.0,0.0,0.0,no,intermittent,yes,intermittent,medium,synthetic
 SYN-00962,6,2,0,0,0,900.0,irregular,4850.0,shelter,0.0,800.0,7400.0,290.0,no,yes,yes,yes,high,synthetic
-SYN-00963,7,1,1,0,0,5190.0,stable,4650.0,rented,2110.0,830.0,0.0,0.0,no,yes,yes,yes,medium,synthetic
+SYN-00963,7,1,1,0,0,5190.0,stable,4650.0,rented,2110.0,830.0,0.0,0.0,no,yes,yes,yes,low,synthetic
 SYN-00964,4,0,0,0,0,1390.0,none,3430.0,rented,2640.0,740.0,0.0,0.0,yes,yes,yes,yes,high,synthetic
 SYN-00965,7,0,1,0,0,2940.0,none,4310.0,rented,1990.0,660.0,17200.0,420.0,no,yes,yes,yes,high,synthetic
 SYN-00966,3,0,0,0,0,8350.0,stable,3200.0,owned,0.0,500.0,115800.0,2320.0,no,yes,yes,yes,low,synthetic
@@ -1932,7 +1932,7 @@ SYN-01929,9,1,2,0,2,3550.0,none,7890.0,rented,1210.0,830.0,0.0,0.0,no,intermitte
 SYN-01930,7,1,1,1,1,5290.0,stable,5730.0,rented,1720.0,820.0,0.0,0.0,no,yes,yes,yes,medium,synthetic
 SYN-01931,4,0,0,0,0,3810.0,irregular,3340.0,rented,1470.0,690.0,0.0,0.0,no,intermittent,yes,yes,medium,synthetic
 SYN-01932,8,2,1,0,0,990.0,irregular,8400.0,owned,0.0,960.0,17000.0,470.0,no,yes,intermittent,yes,high,synthetic
-SYN-01933,5,0,1,0,0,11690.0,stable,4190.0,rented,2170.0,760.0,181400.0,3630.0,no,yes,yes,yes,low,synthetic
+SYN-01933,5,0,1,0,0,11690.0,stable,4190.0,rented,2170.0,760.0,181400.0,3630.0,no,yes,yes,yes,medium,synthetic
 SYN-01934,4,1,0,1,0,3840.0,irregular,3260.0,rented,1840.0,560.0,22200.0,890.0,no,yes,intermittent,yes,high,synthetic
 SYN-01935,5,0,1,1,1,3710.0,none,3220.0,owned,0.0,510.0,9500.0,630.0,no,yes,yes,yes,medium,synthetic
 SYN-01936,3,1,0,0,0,2220.0,none,3080.0,owned,0.0,480.0,0.0,0.0,no,yes,intermittent,yes,medium,synthetic
@@ -2012,7 +2012,7 @@ SYN-02009,1,0,0,0,0,8380.0,stable,1690.0,owned,0.0,590.0,70000.0,1890.0,no,yes,y
 SYN-02010,5,2,0,1,0,3060.0,none,3730.0,rented,1810.0,400.0,14900.0,600.0,no,yes,yes,no,high,synthetic
 SYN-02011,5,1,1,0,1,2600.0,none,4580.0,rented,2300.0,510.0,35200.0,600.0,no,yes,intermittent,intermittent,high,synthetic
 SYN-02012,2,0,0,0,0,6930.0,stable,2150.0,rented,1350.0,680.0,0.0,0.0,no,yes,yes,yes,low,synthetic
-SYN-02013,5,2,1,0,1,4600.0,irregular,4400.0,rented,1620.0,730.0,27500.0,980.0,no,intermittent,yes,yes,medium,synthetic
+SYN-02013,5,2,1,0,1,4600.0,irregular,4400.0,rented,1620.0,730.0,27500.0,980.0,no,intermittent,yes,yes,high,synthetic
 SYN-02014,10,0,1,1,1,3750.0,stable,7400.0,rented,1780.0,1130.0,0.0,0.0,no,intermittent,yes,yes,medium,synthetic
 SYN-02015,5,0,0,2,0,5880.0,irregular,4710.0,owned,0.0,460.0,0.0,0.0,no,yes,yes,intermittent,low,synthetic
 SYN-02016,4,0,0,2,0,7380.0,stable,3130.0,rented,2300.0,510.0,63700.0,1380.0,no,yes,yes,yes,low,synthetic
@@ -2020,7 +2020,7 @@ SYN-02017,4,1,0,0,0,1440.0,irregular,3920.0,rented,2600.0,580.0,0.0,0.0,no,yes,y
 SYN-02018,4,0,0,0,0,2940.0,none,3190.0,owned,0.0,600.0,16100.0,340.0,no,yes,intermittent,yes,medium,synthetic
 SYN-02019,8,2,2,1,0,7020.0,stable,5370.0,shelter,0.0,660.0,0.0,0.0,no,yes,yes,intermittent,low,synthetic
 SYN-02020,3,1,0,0,1,2530.0,none,3000.0,shelter,0.0,460.0,19200.0,390.0,no,yes,intermittent,intermittent,high,synthetic
-SYN-02021,7,2,0,2,1,8090.0,stable,6650.0,rented,2150.0,810.0,116300.0,1970.0,yes,yes,yes,yes,medium,synthetic
+SYN-02021,7,2,0,2,1,8090.0,stable,6650.0,rented,2150.0,810.0,116300.0,1970.0,yes,yes,yes,yes,high,synthetic
 SYN-02022,3,0,0,1,0,2170.0,none,2750.0,owned,0.0,640.0,0.0,0.0,no,no,yes,yes,medium,synthetic
 SYN-02023,6,0,1,0,0,5010.0,irregular,3720.0,shelter,0.0,920.0,0.0,0.0,no,yes,yes,yes,medium,synthetic
 SYN-02024,1,0,0,0,0,7790.0,stable,1640.0,rented,2710.0,450.0,0.0,0.0,no,yes,yes,yes,low,synthetic
@@ -2042,7 +2042,7 @@ SYN-02039,7,2,2,1,0,8530.0,stable,5460.0,rented,2100.0,750.0,0.0,0.0,no,yes,yes,
 SYN-02040,5,1,0,0,0,9620.0,stable,3510.0,rented,2260.0,720.0,0.0,0.0,no,yes,yes,yes,low,synthetic
 SYN-02041,9,0,1,1,1,2870.0,irregular,6710.0,rented,1930.0,890.0,0.0,0.0,yes,yes,yes,yes,high,synthetic
 SYN-02042,6,0,0,1,1,4940.0,irregular,4520.0,owned,0.0,840.0,0.0,0.0,no,yes,intermittent,yes,low,synthetic
-SYN-02043,2,1,0,0,0,3430.0,irregular,2210.0,rented,1330.0,600.0,0.0,0.0,no,yes,yes,yes,low,synthetic
+SYN-02043,2,1,0,0,0,3430.0,irregular,2210.0,rented,1330.0,600.0,0.0,0.0,no,yes,yes,yes,medium,synthetic
 SYN-02044,6,1,0,0,0,2850.0,irregular,4830.0,owned,0.0,670.0,0.0,0.0,yes,yes,yes,yes,medium,synthetic
 SYN-02045,4,1,1,0,0,3630.0,stable,3930.0,owned,0.0,760.0,24500.0,540.0,no,yes,yes,yes,medium,synthetic
 SYN-02046,4,0,1,0,0,2590.0,irregular,3400.0,rented,2190.0,620.0,0.0,0.0,no,yes,yes,yes,medium,synthetic
@@ -2089,7 +2089,7 @@ SYN-02086,6,1,0,1,0,9050.0,stable,5180.0,owned,0.0,740.0,0.0,0.0,no,yes,yes,yes,
 SYN-02087,6,1,1,1,0,3670.0,irregular,5590.0,rented,980.0,910.0,39400.0,740.0,no,yes,yes,yes,high,synthetic
 SYN-02088,8,0,1,1,0,2800.0,none,6450.0,rented,1530.0,880.0,8700.0,540.0,no,yes,yes,yes,high,synthetic
 SYN-02089,6,1,1,0,0,2900.0,irregular,4330.0,rented,1410.0,420.0,20200.0,440.0,no,yes,yes,intermittent,medium,synthetic
-SYN-02090,6,1,1,0,1,2680.0,irregular,6290.0,rented,1820.0,750.0,0.0,0.0,no,yes,yes,yes,high,synthetic
+SYN-02090,6,1,1,0,1,2680.0,irregular,6290.0,rented,1820.0,750.0,0.0,0.0,no,yes,yes,yes,medium,synthetic
 SYN-02091,3,1,0,1,0,1850.0,irregular,2290.0,rented,1520.0,370.0,29500.0,550.0,no,yes,yes,intermittent,high,synthetic
 SYN-02092,5,0,1,0,1,5810.0,stable,4880.0,rented,1080.0,660.0,18300.0,960.0,no,intermittent,yes,yes,medium,synthetic
 SYN-02093,6,4,0,0,0,3650.0,irregular,5160.0,shelter,0.0,550.0,9500.0,390.0,no,yes,yes,intermittent,medium,synthetic
@@ -2374,7 +2374,7 @@ SYN-02371,2,0,0,0,0,4120.0,irregular,1570.0,owned,0.0,500.0,0.0,0.0,no,yes,inter
 SYN-02372,6,1,0,0,0,13300.0,stable,4300.0,shelter,0.0,680.0,0.0,0.0,no,yes,yes,yes,low,synthetic
 SYN-02373,3,0,0,0,0,5040.0,irregular,3290.0,shelter,0.0,660.0,4800.0,370.0,no,yes,yes,yes,low,synthetic
 SYN-02374,5,1,0,2,0,1760.0,none,3760.0,rented,2760.0,810.0,20400.0,350.0,no,yes,yes,yes,high,synthetic
-SYN-02375,6,0,1,0,0,5180.0,stable,5370.0,rented,1790.0,750.0,0.0,0.0,no,yes,yes,yes,medium,synthetic
+SYN-02375,6,0,1,0,0,5180.0,stable,5370.0,rented,1790.0,750.0,0.0,0.0,no,yes,yes,yes,low,synthetic
 SYN-02376,6,1,0,2,0,3200.0,none,5640.0,owned,0.0,960.0,0.0,0.0,no,yes,intermittent,yes,medium,synthetic
 SYN-02377,11,4,1,0,0,6710.0,stable,8100.0,owned,0.0,940.0,98100.0,2130.0,no,yes,yes,yes,medium,synthetic
 SYN-02378,7,0,1,0,0,1810.0,irregular,4170.0,owned,0.0,860.0,12300.0,420.0,no,yes,yes,yes,high,synthetic
@@ -2787,7 +2787,7 @@ SYN-02784,4,0,0,0,0,2570.0,none,3630.0,owned,0.0,640.0,0.0,0.0,no,yes,intermitte
 SYN-02785,3,1,0,0,0,6630.0,stable,2760.0,owned,0.0,610.0,0.0,0.0,no,yes,yes,yes,low,synthetic
 SYN-02786,6,2,1,1,1,13360.0,stable,5700.0,shelter,0.0,710.0,0.0,0.0,no,yes,yes,yes,low,synthetic
 SYN-02787,2,0,0,0,0,8870.0,stable,1920.0,rented,2120.0,700.0,30700.0,2560.0,yes,yes,yes,yes,low,synthetic
-SYN-02788,2,0,0,0,0,5030.0,irregular,2650.0,rented,1930.0,680.0,12500.0,400.0,no,yes,yes,yes,low,synthetic
+SYN-02788,2,0,0,0,0,5030.0,irregular,2650.0,rented,1930.0,680.0,12500.0,400.0,no,yes,yes,yes,medium,synthetic
 SYN-02789,7,1,2,0,1,2120.0,stable,4450.0,shelter,0.0,830.0,17200.0,690.0,no,yes,yes,yes,high,synthetic
 SYN-02790,2,0,0,0,0,6130.0,irregular,2560.0,rented,1550.0,730.0,0.0,0.0,yes,yes,yes,yes,low,synthetic
 SYN-02791,4,1,0,0,1,4720.0,irregular,3470.0,shelter,0.0,740.0,0.0,0.0,no,yes,yes,yes,low,synthetic

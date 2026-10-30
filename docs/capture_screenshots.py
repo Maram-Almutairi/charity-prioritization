@@ -2,7 +2,7 @@
 Capture the interface screenshots used in the report and presentation.
 
 Starts an isolated in-process server on port 5055 (the app stores nothing anyway), imports
-the messy sample file, loads demo families, and saves screenshots to docs/screenshots/.
+the messy sample file, loads the real demo families (open FIES survey), and saves screenshots to docs/screenshots/.
 Requires Playwright and an installed Google Chrome.
 
     python docs/capture_screenshots.py
@@ -22,6 +22,25 @@ from app import create_app  # noqa: E402
 
 OUT = ROOT / "docs" / "screenshots"
 PORT = 5055
+NUMBER_FIELDS = ["household_size", "children_primary", "children_intermediate", "children_secondary",
+                 "monthly_income", "basic_expenses", "utility_bills"]
+CHOICE_FIELDS = ["income_source", "housing_status", "has_health_or_disability",
+                 "electricity_access", "water_access", "internet_access"]
+
+
+def real_family() -> dict:
+    """A typical high-scoring real demo family (open FIES survey): the 90th percentile of the
+    combined score, not the most extreme one, typed in by hand."""
+    import pandas as pd
+    from model.schema import validate
+    from services import Assessor
+    df = pd.read_csv(ROOT / "data" / "raw" / "real_demo_families.csv")
+    a = Assessor()
+    keep = [c for c in df.columns if c not in ("household_id", "head_marital_status", "source_row")]
+    scores = [a.assess(validate(r))["combined_score"] for r in df[keep].to_dict("records")]
+    order = sorted(range(len(df)), key=scores.__getitem__)
+    rec = df.iloc[order[int(0.9 * (len(df) - 1))]].to_dict()
+    return {k: (int(v) if isinstance(v, float) else v) for k, v in rec.items()}
 
 
 def main() -> None:
@@ -64,14 +83,15 @@ def main() -> None:
 
         pg.click(".segmented [data-view=form]")
         f = "#family-form "
-        for name, value in [("ref_code", "N-001"), ("household_size", "6"), ("children_primary", "2"), ("children_secondary", "1"),
-                            ("children_university", "1"), ("monthly_income", "4200"), ("basic_expenses", "4300"),
-                            ("utility_bills", "700"), ("total_debt", "24000"), ("monthly_debt_payment", "1100")]:
-            pg.fill(f + f"[name={name}]", value)
-        for name, value in [("income_source", "irregular"), ("housing_status", "rented"), ("has_health_or_disability", "no"),
-                            ("electricity_access", "intermittent"), ("water_access", "yes"), ("internet_access", "yes")]:
-            pg.click(f + f"label:has(input[name={name}][value={value}])")
-        pg.fill(f + "[name=monthly_rent]", "1900")
+        fam = real_family()
+        for name in NUMBER_FIELDS:
+            if fam[name] or name == "monthly_income":
+                pg.fill(f + f"[name={name}]", str(fam[name]))
+        pg.fill(f + "[name=ref_code]", fam["household_id"])
+        for name in CHOICE_FIELDS:
+            pg.click(f + f"label:has(input[name={name}][value={fam[name]}])")
+        if fam["housing_status"] == "rented":
+            pg.fill(f + "[name=monthly_rent]", str(fam["monthly_rent"]))
         pg.click("button[data-mode=preview]"); pg.wait_for_selector("#result .assessment"); pg.wait_for_timeout(500)
         pg.evaluate("window.scrollTo(0, 0)")
         pg.screenshot(path=OUT / "form.png")

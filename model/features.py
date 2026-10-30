@@ -10,7 +10,9 @@ import pandas as pd
 
 from model.schema import EDUCATION_WEIGHTS
 
-SAUDI_PER_CAPITA_INCOME = 2741   # SAR / month, GASTAT HIES 2018
+# Median per-capita monthly disposable income of Saudi households, SAR (GASTAT HICES 2023,
+# data/raw/gastat_hices_2023.csv). The median is used so a few very rich households do not move it.
+SAUDI_PER_CAPITA_INCOME = 2896
 SAMA_DEBT_BURDEN_CAP = 1 / 3     # SAMA responsible lending: installments <= 33.33% of salary
 
 ORDINAL_MAPS = {
@@ -66,7 +68,7 @@ SELECTED = ["income_to_saudi_avg", "surplus_ratio", "housing_status", "housing_c
             "internet_access"]
 
 FEATURE_LABELS_AR = {
-    "income_to_saudi_avg": "دخل الفرد مقارنة بالمتوسط السعودي",
+    "income_to_saudi_avg": "دخل الفرد مقارنة بالوسيط السعودي",
     "surplus_ratio": "الفائض أو العجز الشهري",
     "housing_status": "الحالة السكنية",
     "housing_cost_burden": "عبء الإيجار والفواتير",

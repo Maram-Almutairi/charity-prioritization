@@ -735,7 +735,7 @@ async function renderMethod() {
         <div class="metric"><span>الاستدعاء (Recall)</span><b class="num">${pct(t.recall_macro)}</b></div>
         <div class="metric"><span>F1</span><b class="num">${pct(t.f1_macro)}</b></div>
         <div class="metric"><span>اكتشاف الأسر عالية الأولوية</span><b class="num">${pct(t.per_class.high.recall)}</b></div>
-        <p class="hint" style="margin-top:10px">على بيانات تجريبية مضبوطة على إحصاءات سعودية. الدقة الحقيقية تُقاس بمقارنته بقرارات الجمعية.</p></article>
+        <p class="hint" style="margin-top:10px">هذه الأرقام على أسر تجريبية (تعليم النموذج). وعلى بيانات حقيقية: مؤشر المخاطر رأى 70% من حالات التعثّر قبل سنتين (120 ألف شخص)، ومؤشر الحاجة اختار ضعف الأسر الفقيرة مقارنة بالصدفة (2,973 أسرة).</p></article>
       <article class="pane glass"><h2>مبادئ الاستخدام</h2>
         <ol class="principles">
           <li><b>النموذج يرتّب ولا يقرر.</b> القرار للمسؤول عن التوزيع، ويمكنه تعديل أي أولوية.</li>

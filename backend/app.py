@@ -18,7 +18,7 @@ POST  /api/import                 multipart Excel/CSV -> cleaned + scored famili
 POST  /api/assess                 score one family
 POST  /api/allocate               budget split for the families sent {"budget", "households"}
 POST  /api/export                 Excel workbook of the families sent (+ allocation)
-GET   /api/demo                   synthetic demo families, scored (nothing stored)
+GET   /api/demo                   real demo families (open FIES survey), scored (nothing stored)
 
 Run:
     python backend/app.py         -> http://127.0.0.1:5000
@@ -44,7 +44,7 @@ def create_app() -> Flask:
     app = Flask(__name__, static_folder=None)
     app.config["MAX_CONTENT_LENGTH"] = MAX_UPLOAD_MB * 1024 * 1024
     app.json.ensure_ascii = False
-    core = ApiCore(Assessor(), ROOT / "data" / "raw" / "synthetic_households.csv")
+    core = ApiCore(Assessor(), ROOT / "data" / "raw" / "real_demo_families.csv")
 
     @app.after_request
     def security_headers(resp):

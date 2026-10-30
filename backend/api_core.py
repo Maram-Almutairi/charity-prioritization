@@ -115,7 +115,7 @@ class ApiCore:
         families = []
         for rec in sample.to_dict("records"):
             item = validate({**{k: rec.get(k) for k in INPUT_FIELDS},
-                             "ref_code": f"تجريبي-{rec['household_id'][-4:]}"})
+                             "ref_code": rec["household_id"]})
             families.append({**item, "final_priority": None, "status": "new", "note": ""})
         return {"households": self.scored(families), "disclaimer": DISCLAIMER}
 

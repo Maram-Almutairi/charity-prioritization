@@ -3,27 +3,27 @@
   "capacity_top_quarter": 750,
   "model_high_priority_count": 812,
   "quadrants": {
-    "monitor": 1604,
-    "urgent": 609,
-    "prevent": 494,
-    "support": 293
+    "monitor": 1595,
+    "urgent": 619,
+    "prevent": 484,
+    "support": 302
   },
   "priority_counts": {
-    "medium": 1131,
-    "low": 1057,
+    "medium": 1133,
+    "low": 1055,
     "high": 812
   },
-  "needs_review": 237,
+  "needs_review": 242,
   "total_monthly_deficit": 6740080,
   "reach": {
     "prevent_quadrant": {
-      "total": 494,
+      "total": 485,
       "need_only_top_k": 0,
-      "need_and_risk_top_k": 120
+      "need_and_risk_top_k": 116
     },
     "service_cutoff_warning": {
       "total": 724,
-      "need_only_top_k": 269,
+      "need_only_top_k": 270,
       "need_and_risk_top_k": 322
     },
     "installment_above_sama_cap": {
@@ -34,7 +34,7 @@
   },
   "budgets": {
     "500000": {
-      "allocated_total": 499605.0,
+      "allocated_total": 499586.0,
       "total_target": 7521230.0,
       "coverage": 0.066,
       "uncovered": 1228,
@@ -42,24 +42,24 @@
       "by_tier": {
         "high": {
           "families": 812,
-          "target": 4315277.0,
-          "allocated": 499605.0
+          "target": 4312630.0,
+          "allocated": 499586.0
         },
         "medium": {
-          "families": 1131,
-          "target": 3085582.0,
+          "families": 1133,
+          "target": 3086989.0,
           "allocated": 0.0
         },
         "low": {
-          "families": 1057,
-          "target": 120371.0,
+          "families": 1055,
+          "target": 121611.0,
           "allocated": 0.0
         }
       },
       "families_fully_covered": 0
     },
     "1000000": {
-      "allocated_total": 999596.0,
+      "allocated_total": 999605.0,
       "total_target": 7521230.0,
       "coverage": 0.133,
       "uncovered": 1228,
@@ -67,24 +67,24 @@
       "by_tier": {
         "high": {
           "families": 812,
-          "target": 4315277.0,
-          "allocated": 999596.0
+          "target": 4312630.0,
+          "allocated": 999605.0
         },
         "medium": {
-          "families": 1131,
-          "target": 3085582.0,
+          "families": 1133,
+          "target": 3086989.0,
           "allocated": 0.0
         },
         "low": {
-          "families": 1057,
-          "target": 120371.0,
+          "families": 1055,
+          "target": 121611.0,
           "allocated": 0.0
         }
       },
       "families_fully_covered": 0
     },
     "3000000": {
-      "allocated_total": 2999599.0,
+      "allocated_total": 2999597.0,
       "total_target": 7521230.0,
       "coverage": 0.399,
       "uncovered": 1228,
@@ -92,17 +92,17 @@
       "by_tier": {
         "high": {
           "families": 812,
-          "target": 4315277.0,
-          "allocated": 2999599.0
+          "target": 4312630.0,
+          "allocated": 2999597.0
         },
         "medium": {
-          "families": 1131,
-          "target": 3085582.0,
+          "families": 1133,
+          "target": 3086989.0,
           "allocated": 0.0
         },
         "low": {
-          "families": 1057,
-          "target": 120371.0,
+          "families": 1055,
+          "target": 121611.0,
           "allocated": 0.0
         }
       },

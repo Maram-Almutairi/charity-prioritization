@@ -259,7 +259,7 @@ def test_browser_dispatch_matches_server():
     from model.light_model import load_bundle
     from services import Assessor
     core = ApiCore(Assessor(bundle=load_bundle(ROOT / "model/artifacts/model_params.json")),
-                   ROOT / "data/raw/synthetic_households.csv")
+                   ROOT / "data/raw/real_demo_families.csv")
     status, text = core.dispatch("/assess", json.dumps(BASE))
     server = create_app().test_client().post("/api/assess", json=BASE).get_json()
     browser = json.loads(text)
@@ -295,3 +295,38 @@ def test_real_data_cleaning_rules():
     assert "rez_esc" not in df and "SQBage" not in df
     h = household_features(df, heads)
     assert h.loc["h1", "level"] == "high" and h.loc["h1", "disabled_members"] == 1
+
+
+def test_model_reference_matches_official_2023_survey():
+    from analysis.saudi_context import load, overall
+    from model.features import SAUDI_PER_CAPITA_INCOME
+    assert overall(load(), "Median Per-capita Monthly Disposable Income") == SAUDI_PER_CAPITA_INCOME
+
+
+def test_credit_risk_cleaning_and_index():
+    from analysis.credit_risk_validation import clean, risk_index
+    raw = pd.DataFrame({"card_use": [0.1, 0.9, 0.5, 0.2], "age": [40, 30, 0, 50], "late_30_59": [0, 2, 0, 98],
+                        "debt_ratio": [0.1, 0.6, 0.2, 0.3], "income": [9000, 3000, 5000, None], "open_lines": [3] * 4,
+                        "late_90": [0, 1, 0, 98], "real_estate_loans": [1] * 4, "late_60_89": [0, 0, 0, 98],
+                        "dependents": [0, None, 1, 2], "y": [0, 1, 0, 0]})
+    df, log = clean(raw)
+    assert len(df) == 2 and log["income_missing_dropped"] == 1 and log["age_zero_dropped"] == 1
+    r = risk_index(df)
+    assert r["risk"].between(0, 100).all() and r.loc[1, "risk"] > r.loc[0, "risk"]
+
+
+def test_real_demo_families_are_valid_and_scored():
+    df = pd.read_csv(ROOT / "data/raw/real_demo_families.csv")
+    assert len(df) == 200 and df["household_id"].str.startswith("PHL-").all()
+    assert (df["total_debt"] == 0).all()  # not in the survey: left empty, never invented
+    for rec in df.head(50).to_dict("records"):
+        validate({k: v for k, v in rec.items() if k not in ("household_id", "head_marital_status", "source_row")})
+    demo = create_app().test_client().get("/api/demo").get_json()["households"]
+    assert demo and all(h["ref_code"].startswith("PHL-") for h in demo)
+
+
+def test_school_stage_split_keeps_count_reasonable():
+    from data.real_families import split_stages
+    assert split_stages(0) == {"children_primary": 0, "children_intermediate": 0, "children_secondary": 0}
+    s = split_stages(13)
+    assert s == {"children_primary": 6, "children_intermediate": 3, "children_secondary": 3}

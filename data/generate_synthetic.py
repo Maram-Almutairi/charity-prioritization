@@ -13,7 +13,8 @@ so incomes are deliberately lower than the national average.
 
 Calibration anchors (all amounts in SAR / month):
 - Saudi household size ~4.8 (GASTAT Census 2022).
-- Saudi household income avg 14,823; per-capita 2,741 (GASTAT HIES 2018).
+- Saudi household disposable income avg 18,056, median 13,655; per-capita median 2,896
+  (GASTAT HICES 2023, data/raw/gastat_hices_2023.csv). Widowed heads 11,082, divorced 12,143.
 - Saudi home ownership 65.4% nationally (Housing Program 2024); lower for applicants.
 - Social security reference: ~1,320 head + ~660 per dependent (unofficial sources, verify).
 - Debt installments capped at 33.33% of salary for employees (SAMA responsible lending).

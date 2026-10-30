@@ -88,7 +88,7 @@
   <h1>أولويات الدعم</h1>
   <p class="sub">ترتيب أولويات التبرعات حسب <b>حاجة الأسرة الآن</b> و<b>مخاطر الأزمة القريبة</b> — للوصول إليها قبل أن تقع الأزمة</p>
   <p class="authors">إعداد: مرام المطيري <span>|</span> ريم المطيري</p>
-  <p class="meta">أكتوبر 2026 · تحليل بيانات وتعلّم آلة قابل للتفسير · إحصاءات سعودية رسمية + اختبار على 2,973 أسرة حقيقية</p>
+  <p class="meta">أكتوبر 2026 · تحليل بيانات وتعلّم آلة قابل للتفسير · بيانات حقيقية: مسح الأسرة السعودية 2023 · أسر حقيقية في الموقع · اختبار على 2,973 أسرة و120 ألف شخص</p>
 </section>
 
 <!-- 2 Question -->
@@ -119,8 +119,8 @@
   <div class="grid4" style="margin-top:26px">
     <div class="glass stat"><b class="num">18</b><span>حقلًا: الطلاب حسب المرحلة، والديون والقسط، والإيجار والفواتير</span></div>
     <div class="glass stat"><b class="num">12</b><span>ميزة مختارة بالتحليل</span></div>
-    <div class="glass stat"><b class="num">87%</b><span>F1 للنموذج المختار</span></div>
-    <div class="glass stat"><b class="num">36</b><span>اختبارًا آليًا ناجحًا</span></div>
+    <div class="glass stat"><b class="num">89%</b><span>F1 للنموذج المختار</span></div>
+    <div class="glass stat"><b class="num">40</b><span>اختبارًا آليًا ناجحًا</span></div>
   </div>
   <div class="foot"><span>أولويات الدعم</span><span class="num">3</span></div>
 </section>
@@ -146,21 +146,21 @@
 <!-- 5 Data -->
 <section class="slide">
   <div class="crit">المعيار 2 — البيانات والتوثيق</div>
-  <h2>ثلاثة أنواع من البيانات: رسمية، وحقيقية، وتجريبية</h2>
+  <h2>خمسة أنواع حقيقية من البيانات، ونوع تجريبي لتعليم النموذج فقط</h2>
   <div class="grid2" style="grid-template-columns:1.25fr 1fr;align-items:start">
     <div class="glass" style="padding:10px 14px">
-      <table><thead><tr><th>المؤشر</th><th class="n">الأسر التجريبية</th><th class="n">المتوسط السعودي</th></tr></thead><tbody>
-        <tr><td>حجم الأسرة</td><td class="n">5.2</td><td class="n">4.8 (تعداد 2022)</td></tr>
-        <tr><td>دخل الفرد الشهري</td><td class="n">1,252</td><td class="n">2,741 (مسح الدخل 2018)</td></tr>
-        <tr><td>تملّك المسكن</td><td class="n">39%</td><td class="n">65.4% (الإسكان 2024)</td></tr>
-        <tr><td>حد القسط من الراتب</td><td class="n">≤ 33%</td><td class="n">33.33% (البنك المركزي)</td></tr>
-        <tr><td>أسر عليها دين</td><td class="n">55%</td><td class="n">—</td></tr>
+      <table><thead><tr><th>مسح الأسرة السعودية 2023 (حقيقي)</th><th class="n">دخل الأسرة الشهري</th></tr></thead><tbody>
+        <tr><td>كل الأسر السعودية</td><td class="n">18,056</td></tr>
+        <tr><td>ربّ الأسرة مطلّق</td><td class="n">12,143 <b style="color:var(--high-ink)">(−33%)</b></td></tr>
+        <tr><td>ربّ الأسرة أرمل</td><td class="n">11,082 <b style="color:var(--high-ink)">(−39%)</b></td></tr>
+        <tr><td>مسكن من جمعية خيرية</td><td class="n">10,004 <b style="color:var(--high-ink)">(−45%)</b></td></tr>
+        <tr><td>وسيط دخل الفرد (خط المقارنة في الأداة)</td><td class="n">2,896</td></tr>
       </tbody></table>
     </div>
     <div style="display:grid;gap:14px">
-      <div class="glass"><h3><span class="tag t-low">حقيقية</span> إحصاءات سعودية رسمية</h3><p style="font-size:15px">الإحصاء، والتعداد، والإسكان، والبنك المركزي: بنينا عليها الأسر التجريبية (الجدول).</p></div>
-      <div class="glass"><h3><span class="tag t-low">حقيقية</span> <span class="num">2,973</span> أسرة مفتوحة</h3><p style="font-size:15px">بيانات بنك التنمية للبلدان الأمريكية (Kaggle) مع مستوى فقر كل أسرة: <b>لاختبار الطريقة</b> على أسر حقيقية.</p></div>
-      <div class="glass"><h3><span class="tag">تجريبية</span> <span class="num">3,000</span> أسرة</h3><p style="font-size:15px">بيانات الأسر السعودية الفردية سرية، فولّدنا أسرًا بخانات القالب السعودي (seed=42) لتعليم النموذج. 11 مرجعًا موثّقًا.</p></div>
+      <div class="glass" style="padding:12px 16px"><h3><span class="tag t-low">حقيقية</span> مسح FIES: <span class="num">41,544</span> أسرة</h3><p style="font-size:14px">هيئة الإحصاء الفلبينية (CC0): <b>200 أسرة معرّضة للفقر في الموقع</b> وملفات Excel.</p></div>
+      <div class="glass" style="padding:12px 16px"><h3><span class="tag t-low">حقيقية</span> <span class="num">2,973</span> أسرة + <span class="num">120</span> ألف شخص</h3><p style="font-size:14px">مستوى الفقر (بنك التنمية للبلدان الأمريكية) والتعثّر المالي بعد سنتين: <b>لاختبار الدرجتين</b>.</p></div>
+      <div class="glass" style="padding:12px 16px"><h3><span class="tag">تجريبية</span> <span class="num">3,000</span> أسرة</h3><p style="font-size:14px">لتعليم النموذج فقط، لأن بيانات الأسر السعودية الفردية سرية. 13 مرجعًا موثّقًا.</p></div>
     </div>
   </div>
   <div class="foot"><span>أولويات الدعم</span><span class="num">5</span></div>
@@ -181,7 +181,7 @@
       </ul>
       <div class="grid2" style="gap:10px">
         <div class="glass stat" style="padding:12px 14px"><b class="num" style="color:var(--low-ink)">25/29</b><span>صفًا مقبولًا</span></div>
-        <div class="glass stat" style="padding:12px 14px"><b class="num" style="color:var(--blue)">9</b><span>صُحّحت تلقائيًا</span></div>
+        <div class="glass stat" style="padding:12px 14px"><b class="num" style="color:var(--blue)">8</b><span>صُحّحت تلقائيًا</span></div>
         <div class="glass stat" style="padding:12px 14px"><b class="num" style="color:var(--high-ink)">4</b><span>رُفضت بسبب واضح</span></div>
         <div class="glass stat" style="padding:12px 14px"><b class="num">0</b><span>مخالفات في 3,000 أسرة</span></div>
       </div>
@@ -197,7 +197,7 @@
   <div class="grid2" style="grid-template-columns:1.15fr 1fr;align-items:center">
     <img class="fig" src="../figures/eda_priority_map.png" alt="">
     <div style="display:grid;gap:12px">
-      <div class="glass"><h3>أقوى المؤشرات</h3><p style="font-size:16px">الفائض أو العجز (MI = 0.60)، ودخل الفرد مقارنة بالمتوسط السعودي (0.43)، وعبء الإيجار والفواتير (0.30)، ومصدر الدخل (0.22).</p></div>
+      <div class="glass"><h3>أقوى المؤشرات</h3><p style="font-size:16px">الفائض أو العجز (MI = 0.59)، ودخل الفرد مقارنة بالوسيط السعودي (0.43)، وعبء الإيجار والفواتير (0.30)، ومصدر الدخل (0.22).</p></div>
       <div class="glass"><h3><span class="tag t-prevent">16%</span> وقاية مبكرة</h3><p style="font-size:16px">حاجتهم الحالية أقل من 50، لكن مخاطرهم مرتفعة. 99% منهم حصلوا على أولوية متوسطة أو عالية.</p></div>
       <div class="glass"><h3>12 ميزة من 19</h3><p style="font-size:16px">استبعاد المكرر (ارتباط &gt; 0.8)، واختيار الأوضح تفسيرًا من كل مجموعة.</p></div>
     </div>
@@ -239,12 +239,12 @@
   <div class="grid2" style="grid-template-columns:1.2fr 1fr;align-items:start">
     <div class="glass" style="padding:10px 14px">
       <table><thead><tr><th>600 أسرة اختبار</th><th class="n">شجرة القرار</th><th class="n">الانحدار اللوجستي ✓</th></tr></thead><tbody>
-        <tr><td>F1 بالتحقق المتقاطع (5-fold)</td><td class="n">80.6%</td><td class="n win">87.3%</td></tr>
-        <tr><td>الدقة</td><td class="n">79.5%</td><td class="n win">87.3%</td></tr>
-        <tr><td>الضبط</td><td class="n">79.0%</td><td class="n win">87.0%</td></tr>
-        <tr><td>الاستدعاء</td><td class="n">80.7%</td><td class="n win">87.6%</td></tr>
-        <tr><td>F1</td><td class="n">79.3%</td><td class="n win">87.3%</td></tr>
-        <tr><td>اكتشاف الأولوية العالية</td><td class="n">84.7%</td><td class="n win">87.3%</td></tr>
+        <tr><td>F1 بالتحقق المتقاطع (5-fold)</td><td class="n">79.3%</td><td class="n win">86.8%</td></tr>
+        <tr><td>الدقة</td><td class="n">80.3%</td><td class="n win">89.2%</td></tr>
+        <tr><td>الضبط</td><td class="n">80.4%</td><td class="n win">89.4%</td></tr>
+        <tr><td>الاستدعاء</td><td class="n">80.3%</td><td class="n win">89.1%</td></tr>
+        <tr><td>F1</td><td class="n">80.3%</td><td class="n win">89.2%</td></tr>
+        <tr><td>اكتشاف الأولوية العالية</td><td class="n">78.0%</td><td class="n win">87.3%</td></tr>
       </tbody></table>
     </div>
     <div style="display:grid;gap:12px">
@@ -275,6 +275,25 @@
   <div class="foot"><span>أولويات الدعم</span><span class="num">10</span></div>
 </section>
 
+<!-- 11 Real credit -->
+<section class="slide">
+  <div class="crit">المعيار 3 — صحة التحليل على بيانات حقيقية</div>
+  <h2 style="margin-bottom:12px">على 120 ألف شخص حقيقي: هل ترى درجة المخاطر الأزمة قبل وقوعها؟</h2>
+  <div class="grid2" style="grid-template-columns:1fr 1.15fr;align-items:start">
+    <div style="display:grid;gap:12px">
+      <div class="glass stat"><span>من تعثّروا ماليًا خلال سنتين ووقعوا في الربع الأعلى من مؤشر المخاطر (أوزان ثابتة)</span><b class="num">25% ← 70%</b><span>الصدفة ← مؤشرنا</span></div>
+      <div class="glass" style="padding:10px 14px"><table><tbody>
+        <tr><td>قدرة التمييز (AUC)</td><td class="n win">0.80</td></tr>
+        <tr><td>التعثّر لمن قسطه فوق حد البنك المركزي / تحته</td><td class="n">8.4% / 5.7%</td></tr>
+        <tr><td>العدالة: AUC بين الأعمار وأحجام الأسر</td><td class="n">0.77 – 0.82</td></tr>
+      </tbody></table></div>
+    </div>
+    <img class="fig" src="../figures/credit_risk_deciles.png" alt="">
+  </div>
+  <div class="note green" style="margin-top:12px;font-size:15px"><div>بيانات Give Me Some Credit (النسخة المفتوحة على OpenML): دخل، وأقساط، ومُعالون، وتأخر في السداد، <b>والتعثّر الفعلي بعد سنتين</b>. هذا جوهر فكرتنا: الوصول <b>قبل</b> الأزمة.</div></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">11</span></div>
+</section>
+
 <!-- 10 Reproducibility -->
 <section class="slide">
   <div class="crit">المعيار 3 — قابلية إعادة التشغيل</div>
@@ -283,7 +302,7 @@
   <div class="grid4">
     <div class="glass stat"><b class="num">42</b><span>بذرة ثابتة في التوليد والقسمة والتحقق</span></div>
     <div class="glass stat"><b class="num">=</b><span>بصمة SHA-256 متطابقة للبيانات والمقاييس بين تشغيلين</span></div>
-    <div class="glass stat"><b class="num">36</b><span>اختبارًا: الدرجات، والتحقق، والتنظيف، والتوزيع، والواجهة البرمجية</span></div>
+    <div class="glass stat"><b class="num">40</b><span>اختبارًا: الدرجات، والتحقق، والتنظيف، والتوزيع، والواجهة البرمجية</span></div>
     <div class="glass stat"><b class="num">1</b><span>ملف ميزات مشترك بين التدريب والموقع</span></div>
   </div>
   <ul class="clean" style="margin-top:20px">
@@ -291,7 +310,7 @@
     <li>الدفتر يُبنى ويُنفَّذ بسكربت، فلا خلايا قديمة أو نتائج منسوخة.</li>
     <li>الخادم يعيد الحساب ولا يثق بأي درجة قادمة من المتصفح.</li>
   </ul>
-  <div class="foot"><span>أولويات الدعم</span><span class="num">11</span></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">12</span></div>
 </section>
 
 <!-- 11 Responsible AI -->
@@ -302,21 +321,22 @@
     <div style="display:grid;gap:10px">
       <div class="glass" style="padding:14px 18px"><h3>الإنسان يقرر</h3><p style="font-size:15px">قرار المسؤول يغلب على النموذج في الترتيب والتوزيع، ولا إقصاء آلي.</p></div>
       <div class="glass" style="padding:14px 18px"><h3>الخصوصية من التصميم</h3><p style="font-size:15px">لا اسم ولا هوية، ولا قاعدة بيانات، والملف يُقرأ في الذاكرة فقط.</p></div>
-      <div class="glass" style="padding:14px 18px"><h3>ذكاء اصطناعي بضوابط</h3><p style="font-size:15px">استعنّا بـ Claude في البناء: لا بيانات أسر سعودية، والبيانات الحقيقية مفتوحة وبلا أسماء، وكل رقم من ملفات المخرجات، مع 36 اختبارًا.</p></div>
+      <div class="glass" style="padding:14px 18px"><h3>ذكاء اصطناعي بضوابط</h3><p style="font-size:15px">استعنّا بـ Claude في البناء: لا بيانات أسر سعودية، والبيانات الحقيقية مفتوحة وبلا أسماء، وكل رقم من ملفات المخرجات، مع 40 اختبارًا.</p></div>
     </div>
     <div class="glass" style="padding:12px">
       <img class="fig" src="../figures/fairness.png" alt="">
-      <p style="font-size:14px;margin-top:6px"><b>فجوة نعلنها:</b> اكتشاف العالية <span class="num">81%</span> للأسر المالكة مقابل <span class="num">95%</span> لذوي الإعاقة. نتابعها في التجربة الموازية.</p>
+      <p style="font-size:14px;margin-top:6px"><b>فجوة نعلنها:</b> اكتشاف العالية <span class="num">79%</span> للأسر المالكة مقابل <span class="num">90%</span> لذوي الإعاقة. نتابعها في التجربة الموازية.</p>
     </div>
   </div>
-  <div class="foot"><span>أولويات الدعم</span><span class="num">12</span></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">13</span></div>
 </section>
 
 <!-- 12 Tool -->
 <section class="slide">
-  <h2 style="margin-bottom:14px">الأداة: لوحة قيادة زجاجية بلا تخزين</h2>
+  <h2 style="margin-bottom:6px">الأداة: لوحة قيادة زجاجية بلا تخزين</h2>
+  <p style="margin-bottom:10px;font-size:16px;color:var(--ink-3)">في الصورة <b>أسر حقيقية</b> (رموز PHL) من مسح دخل وإنفاق الأسرة المفتوح.</p>
   <img class="shot" src="../screenshots/dashboard.png" alt="" style="height:500px;object-fit:cover;object-position:top">
-  <div class="foot"><span>أولويات الدعم</span><span class="num">13</span></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">14</span></div>
 </section>
 
 <!-- 13 Impact -->
@@ -325,15 +345,15 @@
   <h2>من «نصل بعد الأزمة» إلى «نصل قبلها»</h2>
   <p style="margin-bottom:14px">محاكاة على <span class="num">3,000</span> أسرة تجريبية: جمعية تدعم ربع المتقدّمين، أي <b class="num">750</b> أسرة <b>بالعدد نفسه في الطريقتين</b>.</p>
   <div class="grid3">
-    <div class="glass stat"><span>أسر «الوقاية المبكرة» التي نصل إليها</span><b class="num">0 ← 120</b><span>الحاجة فقط ← أداتنا (من 494)</span></div>
-    <div class="glass stat"><span>أسر مهددة بانقطاع الخدمات</span><b class="num">269 ← 322</b><span>+20% (من 724)</span></div>
+    <div class="glass stat"><span>أسر «الوقاية المبكرة» التي نصل إليها</span><b class="num">0 ← 116</b><span>الحاجة فقط ← أداتنا (من 485)</span></div>
+    <div class="glass stat"><span>أسر مهددة بانقطاع الخدمات</span><b class="num">270 ← 322</b><span>+19% (من 724)</span></div>
     <div class="glass stat"><span>أسر قسطها فوق حد البنك المركزي</span><b class="num">56 ← 71</b><span>كلها (من 71)</span></div>
   </div>
   <div class="grid2" style="margin-top:18px">
     <div class="glass"><h3>كم تكفي الميزانية؟</h3><p style="font-size:16px">العجز الشهري الكلي <b class="num">6.74</b> مليون ريال، والدعم المقترح مع الاحتياطي الوقائي <b class="num">7.52</b> مليون. مليون ريال تغطي <b class="num">14.8%</b> من العجز (<b class="num">13.3%</b> من الدعم المقترح)، وتذهب أولًا للأولوية العالية.</p></div>
     <div class="note green" style="font-size:16px"><div><b>رسالة للمتبرع:</b> كل ريال يذهب أولًا لمن هم في الخطر، وكل أسرة لم تُغطَّ ظاهرة باسم رمزها لقرار المسؤول.</div></div>
   </div>
-  <div class="foot"><span>أولويات الدعم</span><span class="num">14</span></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">15</span></div>
 </section>
 
 <!-- 14 Recommendations -->
@@ -356,7 +376,7 @@
       <tr><td>الشهر 6</td><td>قرار الاعتماد</td></tr>
     </tbody></table></div>
   </div>
-  <div class="foot"><span>أولويات الدعم</span><span class="num">15</span></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">16</span></div>
 </section>
 
 <!-- 15 Closing -->
@@ -364,11 +384,11 @@
   <h1 style="font-size:46px">التقييم يساعد الجمعية على أن تصل <span style="color:var(--blue)">أسرع وأعدل</span><br>والقرار يبقى دائمًا لها.</h1>
   <div class="grid4" style="margin-top:34px">
     <div class="glass stat"><b class="num">×2</b><span>أسر فقيرة مقارنة بالصدفة (أسر حقيقية)</span></div>
-    <div class="glass stat"><b class="num">87%</b><span>F1 بنموذج قابل للتفسير</span></div>
-    <div class="glass stat"><b class="num">120</b><span>أسرة وقائية بدل الصفر (بالعدد نفسه)</span></div>
+    <div class="glass stat"><b class="num">70%</b><span>من الأزمات المالية رآها مؤشر المخاطر قبل سنتين</span></div>
+    <div class="glass stat"><b class="num">116</b><span>أسرة وقائية بدل الصفر (بالعدد نفسه)</span></div>
     <div class="glass stat"><b class="num">0</b><span>بيانات مخزّنة</span></div>
   </div>
-  <p style="margin-top:14px;font-size:16px;color:var(--warn);font-weight:700">87% و120: على 3,000 أسرة تجريبية مبنية على إحصاءات سعودية رسمية · ×2: على 2,973 أسرة حقيقية مفتوحة</p>
+  <p style="margin-top:14px;font-size:16px;color:var(--warn);font-weight:700">×2 و70%: على بيانات حقيقية (2,973 أسرة و120 ألف شخص) · 116: محاكاة على 3,000 أسرة تجريبية</p>
   <p class="authors">إعداد: مرام المطيري <span>|</span> ريم المطيري</p>
 </section>
 

@@ -1,17 +1,17 @@
-|--- surplus_ratio <= -0.10
-|   |--- surplus_ratio <= -0.49
+|--- surplus_ratio <= -0.04
+|   |--- surplus_ratio <= -0.50
 |   |   |--- debt_service_ratio <= 0.12
 |   |   |   |--- housing_status <= 0.50
-|   |   |   |   |--- housing_cost_burden <= 0.35
-|   |   |   |   |   |--- income_to_saudi_avg <= 0.14
+|   |   |   |   |--- income_to_saudi_avg <= 0.12
+|   |   |   |   |   |--- housing_cost_burden <= 0.44
 |   |   |   |   |   |   |--- class: medium
-|   |   |   |   |   |--- income_to_saudi_avg >  0.14
-|   |   |   |   |   |   |--- class: medium
-|   |   |   |   |--- housing_cost_burden >  0.35
-|   |   |   |   |   |--- education_load <= 2.30
-|   |   |   |   |   |   |--- class: medium
-|   |   |   |   |   |--- education_load >  2.30
+|   |   |   |   |   |--- housing_cost_burden >  0.44
 |   |   |   |   |   |   |--- class: high
+|   |   |   |   |--- income_to_saudi_avg >  0.12
+|   |   |   |   |   |--- debt_service_ratio <= 0.03
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |   |   |--- debt_service_ratio >  0.03
+|   |   |   |   |   |   |--- class: medium
 |   |   |   |--- housing_status >  0.50
 |   |   |   |   |--- has_health_or_disability <= 0.50
 |   |   |   |   |   |--- surplus_ratio <= -0.56
@@ -24,122 +24,128 @@
 |   |   |   |   |   |--- income_source >  1.50
 |   |   |   |   |   |   |--- class: high
 |   |   |--- debt_service_ratio >  0.12
-|   |   |   |--- surplus_ratio <= -0.69
+|   |   |   |--- surplus_ratio <= -0.57
 |   |   |   |   |--- debt_service_ratio <= 0.20
-|   |   |   |   |   |--- debt_to_annual_income <= 0.49
+|   |   |   |   |   |--- housing_cost_burden <= 0.43
 |   |   |   |   |   |   |--- class: high
-|   |   |   |   |   |--- debt_to_annual_income >  0.49
+|   |   |   |   |   |--- housing_cost_burden >  0.43
 |   |   |   |   |   |   |--- class: high
 |   |   |   |   |--- debt_service_ratio >  0.20
-|   |   |   |   |   |--- debt_to_annual_income <= 0.30
-|   |   |   |   |   |   |--- class: high
-|   |   |   |   |   |--- debt_to_annual_income >  0.30
-|   |   |   |   |   |   |--- class: high
-|   |   |   |--- surplus_ratio >  -0.69
-|   |   |   |   |--- education_load <= 2.85
-|   |   |   |   |   |--- housing_cost_burden <= 0.37
-|   |   |   |   |   |   |--- class: high
-|   |   |   |   |   |--- housing_cost_burden >  0.37
-|   |   |   |   |   |   |--- class: high
-|   |   |   |   |--- education_load >  2.85
-|   |   |   |   |   |--- debt_service_ratio <= 0.15
-|   |   |   |   |   |   |--- class: high
-|   |   |   |   |   |--- debt_service_ratio >  0.15
-|   |   |   |   |   |   |--- class: high
-|   |--- surplus_ratio >  -0.49
-|   |   |--- has_health_or_disability <= 0.50
-|   |   |   |--- surplus_ratio <= -0.27
-|   |   |   |   |--- education_load <= 4.10
-|   |   |   |   |   |--- cutoff_warning <= 0.50
-|   |   |   |   |   |   |--- class: medium
-|   |   |   |   |   |--- cutoff_warning >  0.50
-|   |   |   |   |   |   |--- class: medium
-|   |   |   |   |--- education_load >  4.10
-|   |   |   |   |   |--- cutoff_warning <= 0.50
-|   |   |   |   |   |   |--- class: medium
-|   |   |   |   |   |--- cutoff_warning >  0.50
-|   |   |   |   |   |   |--- class: high
-|   |   |   |--- surplus_ratio >  -0.27
-|   |   |   |   |--- cutoff_warning <= 0.50
-|   |   |   |   |   |--- debt_to_annual_income <= 0.29
-|   |   |   |   |   |   |--- class: low
-|   |   |   |   |   |--- debt_to_annual_income >  0.29
-|   |   |   |   |   |   |--- class: medium
-|   |   |   |   |--- cutoff_warning >  0.50
-|   |   |   |   |   |--- housing_cost_burden <= 0.13
-|   |   |   |   |   |   |--- class: medium
-|   |   |   |   |   |--- housing_cost_burden >  0.13
-|   |   |   |   |   |   |--- class: medium
-|   |   |--- has_health_or_disability >  0.50
-|   |   |   |--- surplus_ratio <= -0.41
-|   |   |   |   |--- debt_to_annual_income <= 0.14
-|   |   |   |   |   |--- class: medium
-|   |   |   |   |--- debt_to_annual_income >  0.14
 |   |   |   |   |   |--- income_source <= 0.50
 |   |   |   |   |   |   |--- class: high
 |   |   |   |   |   |--- income_source >  0.50
 |   |   |   |   |   |   |--- class: high
-|   |   |   |--- surplus_ratio >  -0.41
-|   |   |   |   |--- cutoff_warning <= 0.50
-|   |   |   |   |   |--- surplus_ratio <= -0.24
+|   |   |   |--- surplus_ratio >  -0.57
+|   |   |   |   |--- education_load <= 2.85
+|   |   |   |   |   |--- cutoff_warning <= 0.50
 |   |   |   |   |   |   |--- class: medium
-|   |   |   |   |   |--- surplus_ratio >  -0.24
-|   |   |   |   |   |   |--- class: medium
-|   |   |   |   |--- cutoff_warning >  0.50
-|   |   |   |   |   |--- education_load <= 2.85
-|   |   |   |   |   |   |--- class: medium
-|   |   |   |   |   |--- education_load >  2.85
+|   |   |   |   |   |--- cutoff_warning >  0.50
 |   |   |   |   |   |   |--- class: high
-|--- surplus_ratio >  -0.10
+|   |   |   |   |--- education_load >  2.85
+|   |   |   |   |   |--- housing_cost_burden <= 0.24
+|   |   |   |   |   |   |--- class: high
+|   |   |   |   |   |--- housing_cost_burden >  0.24
+|   |   |   |   |   |   |--- class: high
+|   |--- surplus_ratio >  -0.50
+|   |   |--- cutoff_warning <= 0.50
+|   |   |   |--- surplus_ratio <= -0.26
+|   |   |   |   |--- education_load <= 3.60
+|   |   |   |   |   |--- surplus_ratio <= -0.47
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |   |   |--- surplus_ratio >  -0.47
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |   |--- education_load >  3.60
+|   |   |   |   |   |--- debt_to_annual_income <= 0.42
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |   |   |--- debt_to_annual_income >  0.42
+|   |   |   |   |   |   |--- class: high
+|   |   |   |--- surplus_ratio >  -0.26
+|   |   |   |   |--- debt_to_annual_income <= 0.16
+|   |   |   |   |   |--- income_source <= 0.50
+|   |   |   |   |   |   |--- class: low
+|   |   |   |   |   |--- income_source >  0.50
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |   |--- debt_to_annual_income >  0.16
+|   |   |   |   |   |--- has_health_or_disability <= 0.50
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |   |   |--- has_health_or_disability >  0.50
+|   |   |   |   |   |   |--- class: medium
+|   |   |--- cutoff_warning >  0.50
+|   |   |   |--- education_load <= 4.85
+|   |   |   |   |--- has_health_or_disability <= 0.50
+|   |   |   |   |   |--- debt_to_annual_income <= 0.55
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |   |   |--- debt_to_annual_income >  0.55
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |   |--- has_health_or_disability >  0.50
+|   |   |   |   |   |--- surplus_ratio <= -0.41
+|   |   |   |   |   |   |--- class: high
+|   |   |   |   |   |--- surplus_ratio >  -0.41
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |--- education_load >  4.85
+|   |   |   |   |--- income_to_saudi_avg <= 0.29
+|   |   |   |   |   |--- debt_service_ratio <= 0.04
+|   |   |   |   |   |   |--- class: high
+|   |   |   |   |   |--- debt_service_ratio >  0.04
+|   |   |   |   |   |   |--- class: high
+|   |   |   |   |--- income_to_saudi_avg >  0.29
+|   |   |   |   |   |--- class: medium
+|--- surplus_ratio >  -0.04
 |   |--- surplus_ratio <= 0.09
-|   |   |--- has_health_or_disability <= 0.50
-|   |   |   |--- debt_to_annual_income <= 0.29
-|   |   |   |   |--- cutoff_warning <= 0.50
-|   |   |   |   |   |--- income_to_saudi_avg <= 0.35
+|   |   |--- debt_service_ratio <= 0.13
+|   |   |   |--- housing_status <= 1.50
+|   |   |   |   |--- has_health_or_disability <= 0.50
+|   |   |   |   |   |--- education_load <= 2.85
 |   |   |   |   |   |   |--- class: low
-|   |   |   |   |   |--- income_to_saudi_avg >  0.35
+|   |   |   |   |   |--- education_load >  2.85
 |   |   |   |   |   |   |--- class: low
-|   |   |   |   |--- cutoff_warning >  0.50
+|   |   |   |   |--- has_health_or_disability >  0.50
 |   |   |   |   |   |--- class: low
-|   |   |   |--- debt_to_annual_income >  0.29
-|   |   |   |   |--- surplus_ratio <= -0.02
-|   |   |   |   |   |--- class: medium
-|   |   |   |   |--- surplus_ratio >  -0.02
-|   |   |   |   |   |--- housing_cost_burden <= 0.10
-|   |   |   |   |   |   |--- class: low
-|   |   |   |   |   |--- housing_cost_burden >  0.10
-|   |   |   |   |   |   |--- class: low
-|   |   |--- has_health_or_disability >  0.50
-|   |   |   |--- housing_cost_burden <= 0.13
+|   |   |   |--- housing_status >  1.50
 |   |   |   |   |--- class: low
-|   |   |   |--- housing_cost_burden >  0.13
-|   |   |   |   |--- debt_to_annual_income <= 0.06
+|   |   |--- debt_service_ratio >  0.13
+|   |   |   |--- has_health_or_disability <= 0.50
+|   |   |   |   |--- debt_to_annual_income <= 0.49
+|   |   |   |   |   |--- class: low
+|   |   |   |   |--- debt_to_annual_income >  0.49
+|   |   |   |   |   |--- income_to_saudi_avg <= 0.53
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |   |   |--- income_to_saudi_avg >  0.53
+|   |   |   |   |   |   |--- class: low
+|   |   |   |--- has_health_or_disability >  0.50
+|   |   |   |   |--- housing_cost_burden <= 0.17
 |   |   |   |   |   |--- class: medium
-|   |   |   |   |--- debt_to_annual_income >  0.06
+|   |   |   |   |--- housing_cost_burden >  0.17
 |   |   |   |   |   |--- class: medium
 |   |--- surplus_ratio >  0.09
 |   |   |--- has_health_or_disability <= 0.50
 |   |   |   |--- debt_to_annual_income <= 0.37
-|   |   |   |   |--- housing_cost_burden <= 0.39
-|   |   |   |   |   |--- class: low
-|   |   |   |   |--- housing_cost_burden >  0.39
+|   |   |   |   |--- housing_cost_burden <= 0.37
+|   |   |   |   |   |--- income_source <= 0.50
+|   |   |   |   |   |   |--- class: low
+|   |   |   |   |   |--- income_source >  0.50
+|   |   |   |   |   |   |--- class: low
+|   |   |   |   |--- housing_cost_burden >  0.37
 |   |   |   |   |   |--- class: low
 |   |   |   |--- debt_to_annual_income >  0.37
-|   |   |   |   |--- income_to_saudi_avg <= 0.56
+|   |   |   |   |--- income_to_saudi_avg <= 0.53
 |   |   |   |   |   |--- class: low
-|   |   |   |   |--- income_to_saudi_avg >  0.56
+|   |   |   |   |--- income_to_saudi_avg >  0.53
 |   |   |   |   |   |--- surplus_ratio <= 0.39
 |   |   |   |   |   |   |--- class: low
 |   |   |   |   |   |--- surplus_ratio >  0.39
 |   |   |   |   |   |   |--- class: low
 |   |   |--- has_health_or_disability >  0.50
 |   |   |   |--- housing_status <= 1.50
-|   |   |   |   |--- surplus_ratio <= 0.12
-|   |   |   |   |   |--- class: low
-|   |   |   |   |--- surplus_ratio >  0.12
-|   |   |   |   |   |--- surplus_ratio <= 0.43
+|   |   |   |   |--- debt_to_annual_income <= 0.35
+|   |   |   |   |   |--- housing_cost_burden <= 0.13
 |   |   |   |   |   |   |--- class: low
-|   |   |   |   |   |--- surplus_ratio >  0.43
+|   |   |   |   |   |--- housing_cost_burden >  0.13
+|   |   |   |   |   |   |--- class: low
+|   |   |   |   |--- debt_to_annual_income >  0.35
+|   |   |   |   |   |--- surplus_ratio <= 0.29
+|   |   |   |   |   |   |--- class: medium
+|   |   |   |   |   |--- surplus_ratio >  0.29
 |   |   |   |   |   |   |--- class: low
 |   |   |   |--- housing_status >  1.50
 |   |   |   |   |--- class: low

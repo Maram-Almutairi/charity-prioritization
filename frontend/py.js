@@ -9,7 +9,7 @@ const PY_SOURCES = [
   "model/__init__.py", "model/schema.py", "model/cleaning.py", "model/features.py", "model/scoring.py",
   "model/light_model.py", "backend/services.py", "backend/excel_io.py", "backend/api_core.py",
 ];
-const PY_DATA = ["model/artifacts/model_params.json", "data/raw/synthetic_households.csv"];
+const PY_DATA = ["model/artifacts/model_params.json", "data/raw/real_demo_families.csv"];
 
 const PyEngine = {
   ready: null,
@@ -58,7 +58,7 @@ from api_core import ApiCore
 from services import Assessor
 from model.light_model import load_bundle
 core = ApiCore(Assessor(bundle=load_bundle("/app/model/artifacts/model_params.json")),
-               "/app/data/raw/synthetic_households.csv")
+               "/app/data/raw/real_demo_families.csv")
 `);
       return py;
     })();

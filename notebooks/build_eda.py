@@ -84,8 +84,8 @@ pd.Series(checks, name='مخالفات').to_frame()"""),
 code("""ref = pd.DataFrame({
     'المتقدّمون للجمعية (تجريبي)': [df.household_size.mean(), df.monthly_income.mean(), fe.per_capita_income.mean(),
                                     (df.housing_status == 'owned').mean() * 100, fe.has_debt.mean() * 100],
-    'المتوسط السعودي': [4.8, 14823, SAUDI_PER_CAPITA_INCOME, 65.4, np.nan],
-    'المصدر': ['تعداد 2022', 'مسح الدخل والإنفاق 2018', 'مسح الدخل والإنفاق 2018', 'برنامج الإسكان 2024', '—'],
+    'الأسرة السعودية': [4.8, 13655, SAUDI_PER_CAPITA_INCOME, 65.4, np.nan],
+    'المصدر': ['تعداد 2022', 'الوسيط — مسح الدخل والإنفاق 2023', 'الوسيط — مسح الدخل والإنفاق 2023', 'برنامج الإسكان 2024', '—'],
 }, index=['حجم الأسرة', 'دخل الأسرة (ريال)', 'دخل الفرد (ريال)', 'تملّك المسكن %', 'أسر عليها دين %'])
 ref.round(1)"""),
 code("""fig, axes = plt.subplots(1, 3, figsize=(13, 3.6))
@@ -93,7 +93,7 @@ axes[0].hist(df.household_size, bins=np.arange(0.5, df.household_size.max() + 1.
 axes[0].set_title('حجم الأسرة', loc='right')
 axes[1].hist(fe.per_capita_income.clip(upper=8000), bins=30, color=NEED, edgecolor='white')
 axes[1].axvline(SAUDI_PER_CAPITA_INCOME, color=INK2, ls='--', lw=1.2)
-axes[1].text(SAUDI_PER_CAPITA_INCOME + 80, axes[1].get_ylim()[1] * .88, 'المتوسط السعودي 2,741', color=INK2, fontsize=9)
+axes[1].text(SAUDI_PER_CAPITA_INCOME + 80, axes[1].get_ylim()[1] * .88, 'الوسيط السعودي 2,896', color=INK2, fontsize=9)
 axes[1].set_title('دخل الفرد الشهري (ريال)', loc='right')
 d = fe.debt_service_ratio[fe.has_debt == 1].clip(upper=.6)
 axes[2].hist(d, bins=30, color=RISK, edgecolor='white')
@@ -101,12 +101,12 @@ axes[2].axvline(SAMA_DEBT_BURDEN_CAP, color=INK2, ls='--', lw=1.2)
 axes[2].text(SAMA_DEBT_BURDEN_CAP + .01, axes[2].get_ylim()[1] * .88, 'حد البنك المركزي 33%', color=INK2, fontsize=9)
 axes[2].set_title('نسبة القسط من الدخل (للأسر المدينة)', loc='right')
 fig.tight_layout(); save(fig, 'eda_distributions.png')"""),
-md("""المتقدّمون أسرهم أكبر قليلًا، ودخل الفرد أقل بوضوح من المتوسط السعودي، والتملّك أقل — وهذا مقصود لأن البيانات تمثّل من يطرق باب الجمعية. نحو نصف الأسر عليها ديون، وقسط بعضها يقترب من الحد النظامي 33%."""),
+md("""المتقدّمون أسرهم أكبر قليلًا، ودخل الفرد أقل بوضوح من الوسيط السعودي، والتملّك أقل — وهذا مقصود لأن البيانات تمثّل من يطرق باب الجمعية. نحو نصف الأسر عليها ديون، وقسط بعضها يقترب من الحد النظامي 33%."""),
 
 md("## 3. ما الذي يميّز الأسر عالية الأولوية؟"),
 code("""counts = df.priority_label.value_counts().reindex(ORDER)
 pd.DataFrame({'العدد': counts.values, 'النسبة': (counts / len(df)).round(3).values}, index=[PRIORITY_AR[k] for k in ORDER])"""),
-code("""cols = [('income_to_saudi_avg', 'دخل الفرد ÷ المتوسط السعودي'), ('surplus_ratio', 'الفائض أو العجز ÷ المصروفات'),
+code("""cols = [('income_to_saudi_avg', 'دخل الفرد ÷ الوسيط السعودي'), ('surplus_ratio', 'الفائض أو العجز ÷ المصروفات'),
         ('debt_service_ratio', 'نسبة القسط من الدخل'), ('education_load', 'أعباء الدراسة حسب المرحلة')]
 fig, axes = plt.subplots(1, 4, figsize=(14, 3.6))
 for ax, (col, title) in zip(axes, cols):
@@ -155,7 +155,7 @@ md("""**الميزات المختارة (12):** نختار من كل مجموع�
 
 | المجموعة | المختارة | المستبعدة ولماذا |
 |---|---|---|
-| الدخل | `income_to_saudi_avg` | `monthly_income`, `per_capita_income`: نفس المعلومة، والنسبة للمتوسط السعودي أوضح |
+| الدخل | `income_to_saudi_avg` | `monthly_income`, `per_capita_income`: نفس المعلومة، والنسبة للوسيط السعودي أوضح |
 | التوازن المالي | `surplus_ratio` | `total_expenses`: مضمّنة في النسبة |
 | السكن | `housing_status`, `housing_cost_burden` | — |
 | الدين | `debt_service_ratio`, `debt_to_annual_income` | `total_debt`: مبلغ خام، والنسبة للدخل أعدل بين الأسر |
