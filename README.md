@@ -15,9 +15,10 @@
 |---|---|
 | الموقع (تجربة مباشرة) | https://maram-almutairi.github.io/charity-prioritization/ |
 | التقرير الكامل (PDF) | https://maram-almutairi.github.io/charity-prioritization/docs/report.pdf |
-| الملخص التنفيذي (PDF) | https://maram-almutairi.github.io/charity-prioritization/docs/executive_summary.pdf |
+| التقرير المختصر، 3 صفحات (PDF) | https://maram-almutairi.github.io/charity-prioritization/docs/short_report.pdf |
+| الملخص التنفيذي، صفحتان (PDF) | https://maram-almutairi.github.io/charity-prioritization/docs/executive_summary.pdf |
 | العرض التقديمي (PDF) | https://maram-almutairi.github.io/charity-prioritization/docs/presentation.pdf |
-| التقرير والملخص بصيغة Word | [docs/report.docx](docs/report.docx) · [docs/executive_summary.docx](docs/executive_summary.docx) |
+| بصيغة Word | [التقرير الكامل](docs/report.docx) · [التقرير المختصر](docs/short_report.docx) · [الملخص التنفيذي](docs/executive_summary.docx) |
 
 *A web tool that helps Saudi charities prioritise support by each family's current Need and near-term Risk, using an explainable model. Arabic RTL interface. Nothing is stored on the server.*
 
@@ -69,6 +70,7 @@ python backend/app.py           # ثم افتح http://127.0.0.1:5000
 ├── notebooks/          التحليل الاستكشافي (eda.ipynb) وسكربت بنائه
 ├── tests/              37 اختبارًا آليًا
 ├── docs/
+│   ├── short_report.docx/.pdf       التقرير المختصر (3 صفحات)
 │   ├── executive_summary.docx/.pdf  الملخص التنفيذي (صفحتان)
 │   ├── report.docx / report.pdf     التقرير الكامل (مرفق)
 │   ├── presentation.pdf             العرض التقديمي (المصدر: presentation/slides.html)
