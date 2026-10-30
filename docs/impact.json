@@ -1,0 +1,108 @@
+{
+  "families": 3000,
+  "capacity_top_quarter": 750,
+  "quadrants": {
+    "monitor": 1604,
+    "urgent": 609,
+    "prevent": 494,
+    "support": 293
+  },
+  "priority_counts": {
+    "medium": 1131,
+    "low": 1057,
+    "high": 812
+  },
+  "needs_review": 237,
+  "total_monthly_deficit": 6740080,
+  "reach": {
+    "prevent_quadrant": {
+      "total": 494,
+      "need_only_top_quarter": 0,
+      "model_high_priority": 144
+    },
+    "service_cutoff_warning": {
+      "total": 724,
+      "need_only_top_quarter": 269,
+      "model_high_priority": 345
+    },
+    "installment_above_sama_cap": {
+      "total": 71,
+      "need_only_top_quarter": 56,
+      "model_high_priority": 71
+    }
+  },
+  "budgets": {
+    "500000": {
+      "allocated_total": 499605.0,
+      "total_target": 7521230.0,
+      "coverage": 0.066,
+      "uncovered": 1228,
+      "by_tier": {
+        "high": {
+          "families": 812,
+          "target": 4315277.0,
+          "allocated": 499605.0
+        },
+        "medium": {
+          "families": 1131,
+          "target": 3085582.0,
+          "allocated": 0.0
+        },
+        "low": {
+          "families": 1057,
+          "target": 120371.0,
+          "allocated": 0.0
+        }
+      },
+      "families_fully_covered": 0
+    },
+    "1000000": {
+      "allocated_total": 999596.0,
+      "total_target": 7521230.0,
+      "coverage": 0.133,
+      "uncovered": 1228,
+      "by_tier": {
+        "high": {
+          "families": 812,
+          "target": 4315277.0,
+          "allocated": 999596.0
+        },
+        "medium": {
+          "families": 1131,
+          "target": 3085582.0,
+          "allocated": 0.0
+        },
+        "low": {
+          "families": 1057,
+          "target": 120371.0,
+          "allocated": 0.0
+        }
+      },
+      "families_fully_covered": 0
+    },
+    "3000000": {
+      "allocated_total": 2999599.0,
+      "total_target": 7521230.0,
+      "coverage": 0.399,
+      "uncovered": 1228,
+      "by_tier": {
+        "high": {
+          "families": 812,
+          "target": 4315277.0,
+          "allocated": 2999599.0
+        },
+        "medium": {
+          "families": 1131,
+          "target": 3085582.0,
+          "allocated": 0.0
+        },
+        "low": {
+          "families": 1057,
+          "target": 120371.0,
+          "allocated": 0.0
+        }
+      },
+      "families_fully_covered": 0
+    }
+  }
+}

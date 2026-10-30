@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>أولويات الدعم — العرض التقديمي</title>
+<link rel="stylesheet" href="../../frontend/fonts.css">
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  :root {
+    --ink: #0d1726; --ink-2: #45526a; --ink-3: #5f6b82; --line: rgb(20 40 80 / 10%);
+    --blue: #0a66d6; --need: #2a78d6; --risk: #eb6834; --high: #eb6834; --medium: #2a78d6; --low: #1baf7a; --prevent: #7c5ce6;
+    --high-ink: #a93a10; --medium-ink: #1756a8; --low-ink: #0b6e4b; --prevent-ink: #5537c0; --warn: #8a5800;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Noto Sans Arabic", "Segoe UI", sans-serif; color: var(--ink); font-feature-settings: "tnum" 1; }
+  .slide { width: 1280px; height: 720px; position: relative; overflow: hidden; padding: 56px 72px 52px; display: flex; flex-direction: column; break-after: page; isolation: isolate;
+    background: linear-gradient(180deg, #f6f9fe, #eef3fa); }
+  .slide:last-child { break-after: auto; }
+  .slide::before, .slide::after { content: ""; position: absolute; border-radius: 50%; filter: blur(70px); z-index: -1; }
+  .slide::before { width: 560px; height: 560px; background: #9cc7ff; opacity: .55; inset-inline-end: -160px; top: -220px; }
+  .slide::after { width: 480px; height: 480px; background: #a6e8d6; opacity: .45; inset-inline-start: -160px; bottom: -200px; }
+  .glass { background: linear-gradient(180deg, rgb(255 255 255 / 80%), rgb(255 255 255 / 60%)); border: 1px solid rgb(255 255 255 / 90%);
+    border-radius: 22px; box-shadow: inset 0 1px 0 #fff, 0 18px 40px -22px rgb(28 48 92 / 35%), 0 0 0 .5px rgb(20 40 80 / 8%); padding: 20px 22px; }
+  .crit { font-size: 15px; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+  h1 { font-size: 40px; line-height: 1.25; font-weight: 700; }
+  h2 { font-size: 32px; line-height: 1.3; font-weight: 700; margin-bottom: 24px; }
+  h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  p, li { font-size: 18px; line-height: 1.65; color: var(--ink-2); }
+  b { color: var(--ink); }
+  .num { direction: ltr; unicode-bidi: isolate; font-variant-numeric: tabular-nums; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .stat b { display: block; font-size: 40px; line-height: 1.15; }
+  .stat span { font-size: 15px; color: var(--ink-3); }
+  .foot { position: absolute; bottom: 20px; left: 72px; right: 72px; display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-3); }
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  th { text-align: start; color: var(--ink-3); font-weight: 600; font-size: 14px; padding: 8px 10px; border-bottom: 1.5px solid var(--line); }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  td.n, th.n { text-align: left; }
+  .win { color: var(--blue); font-weight: 700; }
+  .tag { display: inline-block; font-size: 14px; font-weight: 700; border-radius: 99px; padding: 2px 12px; }
+  .t-high { background: #fde5da; color: var(--high-ink); } .t-medium { background: #e0ecfa; color: var(--medium-ink); }
+  .t-low { background: #dcf3ea; color: var(--low-ink); } .t-prevent { background: #ebe5fc; color: var(--prevent-ink); }
+  .note { display: flex; gap: 12px; align-items: flex-start; border-radius: 16px; padding: 12px 16px; background: #fdf3dc; border: 1px solid #f0d58f; color: #5c3d00; font-size: 16px; line-height: 1.6; }
+  .note.green { background: #e6f7f0; border-color: #b6e6d2; color: #0b4d36; }
+  .note.blue { background: #eaf2ff; border-color: #c4dafa; color: #123a73; }
+  img.shot { width: 100%; border-radius: 16px; border: 1px solid rgb(20 40 80 / 10%); box-shadow: 0 18px 40px -20px rgb(28 48 92 / 40%); display: block; }
+  img.fig { width: 100%; display: block; }
+  .flow { display: flex; gap: 12px; align-items: stretch; }
+  .flow .glass { flex: 1; padding: 16px 18px; }
+  .flow .n { width: 32px; height: 32px; border-radius: 50%; background: #e0ecfa; color: var(--blue); font-weight: 700; display: grid; place-items: center; margin-bottom: 10px; }
+  .flow p { font-size: 15px; }
+  .flow .arrow { align-self: center; color: var(--ink-3); font-size: 24px; }
+  .flow .human { background: linear-gradient(180deg, #1f73e0, #0a5cc6); border-color: #0a5cc6; }
+  .flow .human h3, .flow .human p { color: #fff; } .flow .human .n { background: #fff; }
+  .bars { display: grid; gap: 10px; }
+  .bar { display: grid; grid-template-columns: 1fr 34px; gap: 2px 10px; font-size: 15px; }
+  .bar span:first-child { color: var(--ink); }
+  .bar b { text-align: left; }
+  .bar i { grid-column: 1 / -1; height: 8px; border-radius: 99px; background: rgb(20 40 80 / 8%); overflow: hidden; display: block; }
+  .bar i em { display: block; height: 100%; border-radius: 99px; }
+  .need em { background: var(--need); } .risk em { background: var(--risk); }
+  ul.clean { list-style: none; display: grid; gap: 9px; }
+  ul.clean li { position: relative; padding-inline-start: 22px; font-size: 17px; }
+  ul.clean li::before { content: ""; position: absolute; inset-inline-start: 0; top: 11px; width: 9px; height: 9px; border-radius: 3px; background: var(--blue); }
+  .cover { justify-content: center; }
+  .cover .mark { width: 72px; height: 72px; margin-bottom: 26px; }
+  .cover h1 { font-size: 64px; margin-bottom: 14px; }
+  .cover .sub { font-size: 24px; max-width: 900px; color: var(--ink-2); }
+  .cover .authors { margin-top: 40px; font-size: 22px; font-weight: 700; }
+  .cover .authors span { color: var(--ink-3); font-weight: 400; }
+  .cover .meta { margin-top: 10px; font-size: 16px; color: var(--ink-3); }
+</style>
+</head>
+<body>
+
+<!-- 1 Cover -->
+<section class="slide cover">
+  <svg class="mark" viewBox="0 0 40 40"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fd3ff"/><stop offset="1" stop-color="#2f6fe8"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#g)"/><path d="M20 29c-6-4.2-9-7.4-9-11a4.6 4.6 0 0 1 9-1.6A4.6 4.6 0 0 1 29 18c0 3.6-3 6.8-9 11Z" fill="#fff"/><circle cx="27.5" cy="12.5" r="3.2" fill="#ffb27a" stroke="#fff" stroke-width="1.4"/></svg>
+  <h1>أولويات الدعم</h1>
+  <p class="sub">ترتيب أولويات التبرعات حسب <b>حاجة الأسرة الآن</b> و<b>مخاطر الأزمة القريبة</b> — للوصول إليها قبل أن تقع الأزمة</p>
+  <p class="authors">إعداد: مرام المطيري <span>|</span> ريم المطيري</p>
+  <p class="meta">أكتوبر 2026 · تحليل بيانات وتعلّم آلة قابل للتفسير · بيانات تجريبية مضبوطة على إحصاءات سعودية</p>
+</section>
+
+<!-- 2 Question -->
+<section class="slide">
+  <div class="crit">المعيار 1 — سؤال القطاع غير الربحي والقرار</div>
+  <h2>طلبات كثيرة، وميزانية محدودة، ونصل غالبًا بعد الأزمة</h2>
+  <div class="grid3" style="margin-bottom:22px">
+    <div class="glass"><h3>المقارنة صعبة</h3><p style="font-size:16px">دراسة الحالات يدوية، والترتيب يعتمد على التقدير الشخصي.</p></div>
+    <div class="glass"><h3>نصل متأخرين</h3><p style="font-size:16px">الترتيب حسب العجز الحالي يؤخّر الأسرة الهشّة حتى تُفصل كهرباؤها أو تتعثر في قسطها.</p></div>
+    <div class="glass"><h3>التوزيع يحتاج تبريرًا</h3><p style="font-size:16px">المتبرعون والأسر يسألون: لماذا هذه الأسرة أولًا؟</p></div>
+  </div>
+  <div class="note blue" style="font-size:20px"><div><b>السؤال:</b> أي الأسر ندعم أولًا هذا الشهر، وأيها نصل إليه <b>وقائيًا</b>، بطريقة عادلة ومفسَّرة يبقى فيها القرار للجمعية؟<br><b>القرار:</b> ترتيب الأسر (عالية / متوسطة / منخفضة) + توزيع الميزانية، ويعتمده المسؤول عن التوزيع.</div></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">2</span></div>
+</section>
+
+<!-- 3 Solution -->
+<section class="slide">
+  <h2>الحل: من ملف Excel إلى قرار مفسَّر في دقيقة</h2>
+  <div class="flow">
+    <div class="glass"><div class="n">1</div><h3>ارفع ملف Excel</h3><p>قالب جاهز بقوائم منسدلة. يُقرأ في الذاكرة ثم يُهمل، <b>فلا يُخزَّن شيء</b>.</p></div>
+    <div class="arrow">←</div>
+    <div class="glass"><div class="n">2</div><h3>تنظيف موثّق</h3><p>تصحيح الأرقام والإملاء، ورفض المكرر والمستحيل، مع تقرير لكل صف.</p></div>
+    <div class="arrow">←</div>
+    <div class="glass"><div class="n">3</div><h3>درجتان + نموذج</h3><p><b style="color:var(--need)">الحاجة الآن</b> و<b style="color:var(--risk)">مخاطر الأزمة</b>، ثم أولوية من نموذج قابل للتفسير.</p></div>
+    <div class="arrow">←</div>
+    <div class="glass human"><div class="n">4</div><h3>قرار المسؤول</h3><p>يراجع ويعدّل ويوزّع الميزانية، ثم يصدّر Excel وPDF.</p></div>
+  </div>
+  <div class="grid4" style="margin-top:26px">
+    <div class="glass stat"><b class="num">18</b><span>حقلًا: الطلاب حسب المرحلة، والديون والقسط، والإيجار والفواتير</span></div>
+    <div class="glass stat"><b class="num">12</b><span>ميزة مختارة بالتحليل</span></div>
+    <div class="glass stat"><b class="num">87%</b><span>F1 للنموذج المختار</span></div>
+    <div class="glass stat"><b class="num">33</b><span>اختبارًا آليًا ناجحًا</span></div>
+  </div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">3</span></div>
+</section>
+
+<!-- 4 Two scores -->
+<section class="slide">
+  <h2>لماذا درجتان؟ أسرتان في الشهر نفسه</h2>
+  <div class="grid2">
+    <div class="glass"><h3>الأسرة (أ): عجز واضح الآن</h3>
+      <p style="font-size:16px">دخل تقاعد ثابت <span class="num">2,800</span> · مصروفات <span class="num">5,000</span> · مسكن ملك · بلا دين · خدمات منتظمة</p>
+      <p style="margin-top:12px;font-size:20px">الحاجة <b class="num">40</b> · المخاطر <b class="num">16</b></p>
+      <p style="margin-top:8px"><span class="tag t-low">منخفضة</span> <span class="tag">متابعة دورية</span></p></div>
+    <div class="glass"><h3>الأسرة (ب): «تتدبّر أمورها» لكنها هشّة</h3>
+      <p style="font-size:16px">دخل متقطع <span class="num">6,400</span> · إيجار <span class="num">2,000</span> · دين <span class="num">24,000</span> بقسط <span class="num">800</span> · الكهرباء تنقطع</p>
+      <p style="margin-top:12px;font-size:20px">الحاجة <b class="num">29</b> · المخاطر <b class="num">56</b></p>
+      <p style="margin-top:8px"><span class="tag t-medium">متوسطة</span> <span class="tag t-prevent">وقاية مبكرة</span></p></div>
+  </div>
+  <p style="margin-top:20px">الترتيب التقليدي يرى (أ) فقط. درجة <b style="color:var(--risk)">المخاطر</b> تكشف (ب) قبل أن يتحوّل الدين والانقطاع إلى أزمة.</p>
+  <div class="note" style="margin-top:12px"><div>لكن بوزن 50/50 تأتي (أ) منخفضة رغم عجز <span class="num">2,200</span> ريال. <b>هذا قرار قيمي للجمعية</b>، والأوزان قابلة للتعديل من مكان واحد.</div></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">4</span></div>
+</section>
+
+<!-- 5 Data -->
+<section class="slide">
+  <div class="crit">المعيار 2 — البيانات والتوثيق</div>
+  <h2>بيانات مضبوطة على أرقام الأسرة السعودية</h2>
+  <div class="grid2" style="grid-template-columns:1.25fr 1fr;align-items:start">
+    <div class="glass" style="padding:10px 14px">
+      <table><thead><tr><th>المؤشر</th><th class="n">المتقدّمون (تجريبي)</th><th class="n">المتوسط السعودي</th></tr></thead><tbody>
+        <tr><td>حجم الأسرة</td><td class="n">5.2</td><td class="n">4.8 (تعداد 2022)</td></tr>
+        <tr><td>دخل الفرد الشهري</td><td class="n">1,252</td><td class="n">2,741 (مسح الدخل 2018)</td></tr>
+        <tr><td>تملّك المسكن</td><td class="n">39%</td><td class="n">65.4% (الإسكان 2024)</td></tr>
+        <tr><td>حد القسط من الراتب</td><td class="n">≤ 33%</td><td class="n">33.33% (البنك المركزي)</td></tr>
+        <tr><td>أسر عليها دين</td><td class="n">55%</td><td class="n">—</td></tr>
+      </tbody></table>
+    </div>
+    <div style="display:grid;gap:14px">
+      <div class="glass"><h3>لماذا تجريبية؟</h3><p style="font-size:16px">بيانات الأسر السعودية الخام سرية، ولا يجوز اختراع بيانات حقيقية. ولّدنا <b class="num">3,000</b> أسرة بسكربت موثّق (seed=42).</p></div>
+      <div class="glass"><h3>14 مصدرًا روجعت</h3><p style="font-size:16px">6 سعودية للمعايرة، و8 دولية للمنهجية (OPHI، وUNHCR، وKaggle...). الروابط والتراخيص في التقرير.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">5</span></div>
+</section>
+
+<!-- 6 Cleaning -->
+<section class="slide">
+  <div class="crit">المعيار 2 — جودة تنظيف البيانات</div>
+  <h2 style="margin-bottom:16px">تنظيف لا يغيّر شيئًا بصمت</h2>
+  <div class="grid2" style="grid-template-columns:1fr 1.45fr;align-items:start">
+    <div style="display:grid;gap:12px">
+      <ul class="clean">
+        <li>«٣٬٥٠٠ ريال» ← <b class="num">3500</b></li>
+        <li>«ايجار» = «إيجار»، و«راتب» = «ثابت»</li>
+        <li>الفارغ في الديون والفواتير ← صفر (مُسجَّل)</li>
+        <li>رفض: رمز مكرر، وطلاب أكثر من الأفراد، وقيمة مجهولة</li>
+        <li>القيم الشاذة تُقبل وتُعلَّم <b>للتحقق</b></li>
+      </ul>
+      <div class="grid2" style="gap:10px">
+        <div class="glass stat" style="padding:12px 14px"><b class="num" style="color:var(--low-ink)">25/29</b><span>صفًا مقبولًا</span></div>
+        <div class="glass stat" style="padding:12px 14px"><b class="num" style="color:var(--blue)">9</b><span>صُحّحت تلقائيًا</span></div>
+        <div class="glass stat" style="padding:12px 14px"><b class="num" style="color:var(--high-ink)">4</b><span>رُفضت بسبب واضح</span></div>
+        <div class="glass stat" style="padding:12px 14px"><b class="num">0</b><span>مخالفات في 3,000 أسرة</span></div>
+      </div>
+    </div>
+    <img class="shot" src="../screenshots/import_report.png" alt="">
+  </div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">6</span></div>
+</section>
+
+<!-- 7 EDA -->
+<section class="slide">
+  <h2 style="margin-bottom:14px">ما الذي يرفع الأولوية؟</h2>
+  <div class="grid2" style="grid-template-columns:1.15fr 1fr;align-items:center">
+    <img class="fig" src="../figures/eda_priority_map.png" alt="">
+    <div style="display:grid;gap:12px">
+      <div class="glass"><h3>أقوى المؤشرات</h3><p style="font-size:16px">الفائض أو العجز (MI = 0.60)، ودخل الفرد مقارنة بالمتوسط السعودي (0.43)، وعبء الإيجار والفواتير (0.30)، ومصدر الدخل (0.22).</p></div>
+      <div class="glass"><h3><span class="tag t-prevent">16%</span> وقاية مبكرة</h3><p style="font-size:16px">حاجتهم الحالية أقل من 50، لكن مخاطرهم مرتفعة. 99% منهم حصلوا على أولوية متوسطة أو عالية.</p></div>
+      <div class="glass"><h3>12 ميزة من 19</h3><p style="font-size:16px">استبعاد المكرر (ارتباط &gt; 0.8)، واختيار الأوضح تفسيرًا من كل مجموعة.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">7</span></div>
+</section>
+
+<!-- 8 Scores -->
+<section class="slide">
+  <div class="crit">المعيار 3 — استراتيجية التحليل</div>
+  <h2>درجتان بأوزان معلنة: كل نقطة لها سبب</h2>
+  <div class="grid2">
+    <div class="glass"><h3 style="color:var(--need)">الحاجة الآن (من 100)</h3>
+      <div class="bars need">
+        <div class="bar"><span>المصروفات أعلى من الدخل</span><b>35</b><i><em style="width:100%"></em></i></div>
+        <div class="bar"><span>دخل الفرد مقارنة بالمتوسط السعودي</span><b>25</b><i><em style="width:71%"></em></i></div>
+        <div class="bar"><span>السكن (ملك / إيجار / مأوى)</span><b>15</b><i><em style="width:43%"></em></i></div>
+        <div class="bar"><span>أعباء الدراسة حسب المرحلة</span><b>15</b><i><em style="width:43%"></em></i></div>
+        <div class="bar"><span>الكهرباء والماء والإنترنت</span><b>10</b><i><em style="width:29%"></em></i></div>
+      </div></div>
+    <div class="glass"><h3 style="color:var(--risk)">مخاطر الأزمة القريبة (من 100)</h3>
+      <div class="bars risk">
+        <div class="bar"><span>عدم ثبات الدخل</span><b>20</b><i><em style="width:100%"></em></i></div>
+        <div class="bar"><span>القسط ÷ الدخل (الحد 33% — البنك المركزي)</span><b>20</b><i><em style="width:100%"></em></i></div>
+        <div class="bar"><span>الإيجار والفواتير ÷ الدخل</span><b>15</b><i><em style="width:75%"></em></i></div>
+        <div class="bar"><span>حالة صحية أو إعاقة</span><b>15</b><i><em style="width:75%"></em></i></div>
+        <div class="bar"><span>حجم الدين ÷ الدخل السنوي</span><b>10</b><i><em style="width:50%"></em></i></div>
+        <div class="bar"><span>هامش أمان ضيق</span><b>10</b><i><em style="width:50%"></em></i></div>
+        <div class="bar"><span>انقطاع الكهرباء أو الماء</span><b>10</b><i><em style="width:50%"></em></i></div>
+      </div></div>
+  </div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">8</span></div>
+</section>
+
+<!-- 9 Model -->
+<section class="slide">
+  <div class="crit">المعيار 3 — صحة التحليل</div>
+  <h2 style="margin-bottom:16px">نموذج يمكن شرحه، لا «صندوق أسود»</h2>
+  <div class="grid2" style="grid-template-columns:1.2fr 1fr;align-items:start">
+    <div class="glass" style="padding:10px 14px">
+      <table><thead><tr><th>600 أسرة اختبار</th><th class="n">شجرة القرار</th><th class="n">الانحدار اللوجستي ✓</th></tr></thead><tbody>
+        <tr><td>F1 بالتحقق المتقاطع (5-fold)</td><td class="n">80.6%</td><td class="n win">87.3%</td></tr>
+        <tr><td>الدقة</td><td class="n">79.5%</td><td class="n win">87.3%</td></tr>
+        <tr><td>الضبط</td><td class="n">79.0%</td><td class="n win">87.0%</td></tr>
+        <tr><td>الاستدعاء</td><td class="n">80.7%</td><td class="n win">87.6%</td></tr>
+        <tr><td>F1</td><td class="n">79.3%</td><td class="n win">87.3%</td></tr>
+        <tr><td>اكتشاف الأولوية العالية</td><td class="n">84.7%</td><td class="n win">87.3%</td></tr>
+      </tbody></table>
+    </div>
+    <div style="display:grid;gap:12px">
+      <img class="fig" src="../figures/confusion_logreg.png" alt="" style="max-width:330px;margin:auto">
+      <div class="note green" style="font-size:15px"><div><b>لا خلط بين «عالية» و«منخفضة».</b> كل الأخطاء بين فئتين متجاورتين، والحالات التي تقل ثقة النموذج فيها عن 60% تُعلَّم للمراجعة.</div></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px;font-size:15px"><div>الوسوم مشتقة من معادلة الدرجتين، فالدقة تقيس تعلّم المنهجية. <b>الدقة الحقيقية تُقاس بمقارنة النموذج بقرارات الجمعية.</b></div></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">9</span></div>
+</section>
+
+<!-- 10 Reproducibility -->
+<section class="slide">
+  <div class="crit">المعيار 3 — قابلية إعادة التشغيل</div>
+  <h2>أمر واحد يعيد بناء كل شيء، بنتائج متطابقة</h2>
+  <div class="glass" style="direction:ltr;text-align:left;font-family:Consolas,monospace;font-size:20px;padding:16px 22px;margin-bottom:18px">python run_all.py &nbsp;→&nbsp; data → model → samples → notebook → impact → tests &nbsp;(~20 s)</div>
+  <div class="grid4">
+    <div class="glass stat"><b class="num">42</b><span>بذرة ثابتة في التوليد والقسمة والتحقق</span></div>
+    <div class="glass stat"><b class="num">=</b><span>بصمة SHA-256 متطابقة للبيانات والمقاييس بين تشغيلين</span></div>
+    <div class="glass stat"><b class="num">33</b><span>اختبارًا: الدرجات، والتحقق، والتنظيف، والتوزيع، والواجهة البرمجية</span></div>
+    <div class="glass stat"><b class="num">1</b><span>ملف ميزات مشترك بين التدريب والموقع</span></div>
+  </div>
+  <ul class="clean" style="margin-top:20px">
+    <li>إصدارات المكتبات مثبّتة في <b>requirements.txt</b> ومسجّلة مع المقاييس.</li>
+    <li>الدفتر يُبنى ويُنفَّذ بسكربت، فلا خلايا قديمة أو نتائج منسوخة.</li>
+    <li>الخادم يعيد الحساب ولا يثق بأي درجة قادمة من المتصفح.</li>
+  </ul>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">10</span></div>
+</section>
+
+<!-- 11 Responsible AI -->
+<section class="slide">
+  <div class="crit">المعيار 4 — الذكاء الاصطناعي والأتمتة بمسؤولية</div>
+  <h2 style="margin-bottom:16px">مسؤولية مبنية في الأداة، لا مكتوبة فقط</h2>
+  <div class="grid2" style="grid-template-columns:1fr 1.1fr;align-items:start">
+    <div style="display:grid;gap:10px">
+      <div class="glass" style="padding:14px 18px"><h3>الإنسان يقرر</h3><p style="font-size:15px">قرار المسؤول يغلب على النموذج في الترتيب والتوزيع، ولا إقصاء آلي.</p></div>
+      <div class="glass" style="padding:14px 18px"><h3>الخصوصية من التصميم</h3><p style="font-size:15px">لا اسم ولا هوية، ولا قاعدة بيانات، والملف يُقرأ في الذاكرة فقط.</p></div>
+      <div class="glass" style="padding:14px 18px"><h3>ذكاء اصطناعي بضوابط</h3><p style="font-size:15px">استعنّا بـ Claude في البناء: لا بيانات حقيقية، وكل رقم من ملفات المخرجات، مع 33 اختبارًا ومراجعة مستقلة.</p></div>
+    </div>
+    <div class="glass" style="padding:12px">
+      <img class="fig" src="../figures/fairness.png" alt="">
+      <p style="font-size:14px;margin-top:6px"><b>فجوة نعلنها:</b> اكتشاف العالية <span class="num">81%</span> للأسر المالكة مقابل <span class="num">95%</span> لذوي الإعاقة. نتابعها في التجربة الموازية.</p>
+    </div>
+  </div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">11</span></div>
+</section>
+
+<!-- 12 Tool -->
+<section class="slide">
+  <h2 style="margin-bottom:14px">الأداة: لوحة قيادة زجاجية بلا تخزين</h2>
+  <img class="shot" src="../screenshots/dashboard.png" alt="" style="height:500px;object-fit:cover;object-position:top">
+  <div class="foot"><span>أولويات الدعم</span><span class="num">12</span></div>
+</section>
+
+<!-- 13 Impact -->
+<section class="slide">
+  <div class="crit">المعيار 5 — قصة الأثر</div>
+  <h2>من «نصل بعد الأزمة» إلى «نصل قبلها»</h2>
+  <p style="margin-bottom:14px">محاكاة على <span class="num">3,000</span> أسرة تجريبية: جمعية تستطيع دعم ربع المتقدّمين.</p>
+  <div class="grid3">
+    <div class="glass stat"><span>أسر «الوقاية المبكرة» التي نصل إليها</span><b class="num">0 ← 144</b><span>الحاجة فقط ← أداتنا (من 494)</span></div>
+    <div class="glass stat"><span>أسر مهددة بانقطاع الخدمات</span><b class="num">269 ← 345</b><span>+28% (من 724)</span></div>
+    <div class="glass stat"><span>أسر قسطها فوق حد البنك المركزي</span><b class="num">56 ← 71</b><span>كلها (من 71)</span></div>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="glass"><h3>كم تكفي الميزانية؟</h3><p style="font-size:16px">العجز الشهري الكلي <b class="num">6.74</b> مليون ريال. مليون ريال تغطي <b class="num">13%</b> من الاحتياج وتذهب كلها للأولوية العالية، والأداة تُظهر بالأرقام من بقي بلا تغطية.</p></div>
+    <div class="note green" style="font-size:16px"><div><b>رسالة للمتبرع:</b> كل ريال يذهب أولًا لمن هم في الخطر، وكل أسرة لم تُغطَّ ظاهرة باسم رمزها لقرار المسؤول.</div></div>
+  </div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">13</span></div>
+</section>
+
+<!-- 14 Recommendations -->
+<section class="slide">
+  <div class="crit">المعيار 5 — التوصيات</div>
+  <h2>التوصيات وخارطة الطريق</h2>
+  <div class="grid2" style="align-items:start">
+    <div class="glass"><h3>للجمعية</h3>
+      <ul class="clean">
+        <li><b>تجربة موازية 3 أشهر</b> دون أثر على القرار.</li>
+        <li><b>قرار أوزان الحاجة والمخاطر</b> (50/50 أم 60/40).</li>
+        <li><b>نموذج موافقة للأسر</b> متوافق مع نظام حماية البيانات الشخصية.</li>
+        <li><b>إعادة التدريب</b> على قرارات الجمعية الحقيقية.</li>
+        <li><b>مراقبة فجوة العدالة</b> لدى الأسر المالكة.</li>
+      </ul></div>
+    <div class="glass" style="padding:10px 14px"><table><thead><tr><th>المدة</th><th>المرحلة</th></tr></thead><tbody>
+      <tr><td>الشهر 1</td><td>مراجعة الأوزان، والموافقات، والصلاحيات</td></tr>
+      <tr><td>الأشهر 2–4</td><td>تجربة موازية مع الأخصائيين</td></tr>
+      <tr><td>الشهر 5</td><td>المقارنة، وفحص العدالة، وإعادة التدريب</td></tr>
+      <tr><td>الشهر 6</td><td>قرار الاعتماد</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">14</span></div>
+</section>
+
+<!-- 15 Closing -->
+<section class="slide cover">
+  <h1 style="font-size:46px">التقييم يساعد الجمعية على أن تصل <span style="color:var(--blue)">أسرع وأعدل</span><br>والقرار يبقى دائمًا لها.</h1>
+  <div class="grid4" style="margin-top:34px">
+    <div class="glass stat"><b class="num">2</b><span>درجتان مفسَّرتان</span></div>
+    <div class="glass stat"><b class="num">87%</b><span>F1 بنموذج قابل للتفسير</span></div>
+    <div class="glass stat"><b class="num">144</b><span>أسرة وقائية بدل الصفر</span></div>
+    <div class="glass stat"><b class="num">0</b><span>بيانات مخزّنة</span></div>
+  </div>
+  <p class="authors">إعداد: مرام المطيري <span>|</span> ريم المطيري</p>
+</section>
+
+</body>
+</html>

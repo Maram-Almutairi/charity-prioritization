@@ -1,0 +1,21 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local data / never commit real family files
+data/processed/*
+!data/processed/.gitkeep
+*.db
+real_data/
+
+# Editors, OS, Office lock files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*
+node_modules/
