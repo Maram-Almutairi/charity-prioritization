@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=1340">
 <title>أولويات الدعم — العرض التقديمي</title>
 <link rel="stylesheet" href="../../frontend/fonts.css">
 <style>
@@ -17,6 +18,11 @@
   .slide { width: 1280px; height: 720px; position: relative; overflow: hidden; padding: 56px 72px 52px; display: flex; flex-direction: column; break-after: page; isolation: isolate;
     background: linear-gradient(180deg, #f6f9fe, #eef3fa); }
   .slide:last-child { break-after: auto; }
+  @media screen {
+    html, body { background: #dfe6f0; }
+    body { padding: 30px 0; }
+    .slide { margin: 0 auto 30px; border-radius: 18px; box-shadow: 0 20px 50px -24px rgb(28 48 92 / 45%); }
+  }
   .slide::before, .slide::after { content: ""; position: absolute; border-radius: 50%; filter: blur(70px); z-index: -1; }
   .slide::before { width: 560px; height: 560px; background: #9cc7ff; opacity: .55; inset-inline-end: -160px; top: -220px; }
   .slide::after { width: 480px; height: 480px; background: #a6e8d6; opacity: .45; inset-inline-start: -160px; bottom: -200px; }
