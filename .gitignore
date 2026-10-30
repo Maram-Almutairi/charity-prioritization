@@ -19,3 +19,4 @@ real_data/
 Thumbs.db
 ~$*
 node_modules/
+data/external/

@@ -4,6 +4,9 @@ Reproduce every artifact of the project from scratch, in order, with fixed seeds
     python run_all.py            # data -> model -> samples -> notebook -> tests
     python run_all.py --pdf      # ... and render docs/presentation.pdf
 
+If the real Costa Rica data is present (data/external/costa_rica/train.csv, see
+analysis/real_data_validation.py), the real-data validation runs too.
+
 Each step is a separate process so a failure stops the run with a clear message.
 """
 
@@ -22,13 +25,20 @@ STEPS = [
     ("5/6 محاكاة الأثر (docs/impact.json)", [sys.executable, "docs/impact_simulation.py"]),
     ("6/6 الاختبارات", [sys.executable, "-m", "pytest", "-q", "tests"]),
 ]
+REAL_DATA = ROOT / "data" / "external" / "costa_rica" / "train.csv"
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--pdf", action="store_true", help="also render the presentation PDF")
     args = parser.parse_args()
-    steps = STEPS + ([("PDF العرض التقديمي", [sys.executable, "docs/build_pdfs.py"])] if args.pdf else [])
+    steps = list(STEPS)
+    if REAL_DATA.exists():
+        steps.insert(5, ("+ التحقق على بيانات أسر حقيقية (docs/real_data_results.json)",
+                         [sys.executable, "-I", "analysis/real_data_validation.py"]))
+    else:
+        print("تنبيه: بيانات التحقق الحقيقية غير موجودة، تخطّينا خطوتها (التفاصيل في analysis/real_data_validation.py)")
+    steps += ([("PDF العرض التقديمي", [sys.executable, "docs/build_pdfs.py"])] if args.pdf else [])
 
     for title, cmd in steps:
         print(f"\n=== {title} ===", flush=True)

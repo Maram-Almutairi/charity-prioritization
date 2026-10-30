@@ -271,3 +271,27 @@ def test_browser_dispatch_matches_server():
     assert status == 200 and json.loads(data)["summary"]["accepted"] == 25
     status, data = core.dispatch("/template")
     assert status == 200 and data[:2] == b"PK"
+
+
+# ---------- real-data validation (cleaning rules, no download needed)
+
+def test_real_data_cleaning_rules():
+    from analysis.real_data_validation import clean, household_features
+    base = dict(v2a1=None, v18q1=None, meaneduc=8.0, escolari=8, rez_esc=None, SQBage=1, agesq=1,
+                hhsize=2, hogar_nin=1, hogar_mayor=0, hogar_adul=1, overcrowding=1.0, tipovivi1=0, tipovivi2=0,
+                tipovivi3=1, tipovivi4=0, epared1=0, etecho1=0, eviv1=0, pisonotiene=0, noelec=0,
+                abastaguadentro=1, sanitario1=0, refrig=1, computer=0, television=1, qmobilephone=2,
+                dis=0, female=1, area1=1)
+    raw = pd.DataFrame([
+        {**base, "Id": "a1", "idhogar": "h1", "parentesco1": 1, "Target": 2, "dependency": "yes", "edjefe": "no", "edjefa": "10"},
+        {**base, "Id": "a2", "idhogar": "h1", "parentesco1": 0, "Target": 4, "dependency": "yes", "edjefe": "no", "edjefa": "10", "dis": 1},
+        {**base, "Id": "b1", "idhogar": "h2", "parentesco1": 0, "Target": 4, "dependency": "no", "edjefe": "5", "edjefa": "no"},
+    ])
+    df, heads, log = clean(raw)
+    log = dict(log)
+    assert log["households_inconsistent_target_fixed"] == 1 and log["households_without_head_dropped"] == 1
+    assert set(df["idhogar"]) == {"h1"} and set(df["Target"]) == {2}          # head's level for everyone
+    assert df["dependency"].iloc[0] == 1 and df["edjefe"].iloc[0] == 0 and df["v2a1"].iloc[0] == 0
+    assert "rez_esc" not in df and "SQBage" not in df
+    h = household_features(df, heads)
+    assert h.loc["h1", "level"] == "high" and h.loc["h1", "disabled_members"] == 1

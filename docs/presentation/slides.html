@@ -88,7 +88,7 @@
   <h1>أولويات الدعم</h1>
   <p class="sub">ترتيب أولويات التبرعات حسب <b>حاجة الأسرة الآن</b> و<b>مخاطر الأزمة القريبة</b> — للوصول إليها قبل أن تقع الأزمة</p>
   <p class="authors">إعداد: مرام المطيري <span>|</span> ريم المطيري</p>
-  <p class="meta">أكتوبر 2026 · تحليل بيانات وتعلّم آلة قابل للتفسير · بيانات تجريبية مضبوطة على إحصاءات سعودية</p>
+  <p class="meta">أكتوبر 2026 · تحليل بيانات وتعلّم آلة قابل للتفسير · إحصاءات سعودية رسمية + اختبار على 2,973 أسرة حقيقية</p>
 </section>
 
 <!-- 2 Question -->
@@ -120,7 +120,7 @@
     <div class="glass stat"><b class="num">18</b><span>حقلًا: الطلاب حسب المرحلة، والديون والقسط، والإيجار والفواتير</span></div>
     <div class="glass stat"><b class="num">12</b><span>ميزة مختارة بالتحليل</span></div>
     <div class="glass stat"><b class="num">87%</b><span>F1 للنموذج المختار</span></div>
-    <div class="glass stat"><b class="num">33</b><span>اختبارًا آليًا ناجحًا</span></div>
+    <div class="glass stat"><b class="num">36</b><span>اختبارًا آليًا ناجحًا</span></div>
   </div>
   <div class="foot"><span>أولويات الدعم</span><span class="num">3</span></div>
 </section>
@@ -146,10 +146,10 @@
 <!-- 5 Data -->
 <section class="slide">
   <div class="crit">المعيار 2 — البيانات والتوثيق</div>
-  <h2>بيانات مضبوطة على أرقام الأسرة السعودية</h2>
+  <h2>ثلاثة أنواع من البيانات: رسمية، وحقيقية، وتجريبية</h2>
   <div class="grid2" style="grid-template-columns:1.25fr 1fr;align-items:start">
     <div class="glass" style="padding:10px 14px">
-      <table><thead><tr><th>المؤشر</th><th class="n">المتقدّمون (تجريبي)</th><th class="n">المتوسط السعودي</th></tr></thead><tbody>
+      <table><thead><tr><th>المؤشر</th><th class="n">الأسر التجريبية</th><th class="n">المتوسط السعودي</th></tr></thead><tbody>
         <tr><td>حجم الأسرة</td><td class="n">5.2</td><td class="n">4.8 (تعداد 2022)</td></tr>
         <tr><td>دخل الفرد الشهري</td><td class="n">1,252</td><td class="n">2,741 (مسح الدخل 2018)</td></tr>
         <tr><td>تملّك المسكن</td><td class="n">39%</td><td class="n">65.4% (الإسكان 2024)</td></tr>
@@ -158,8 +158,9 @@
       </tbody></table>
     </div>
     <div style="display:grid;gap:14px">
-      <div class="glass"><h3>لماذا تجريبية؟</h3><p style="font-size:16px">بيانات الأسر السعودية الخام سرية، ولا يجوز اختراع بيانات حقيقية. ولّدنا <b class="num">3,000</b> أسرة بسكربت موثّق (seed=42).</p></div>
-      <div class="glass"><h3>10 مراجع موثّقة</h3><p style="font-size:16px">7 سعودية (الإحصاء، والتعداد، والإسكان، والبنك المركزي، وسدايا)، ومرجع للمنهجية (أكسفورد)، ومرجعان لأدوات التحليل. كل الروابط مختبرة في قائمة مراجع التقرير.</p></div>
+      <div class="glass"><h3><span class="tag t-low">حقيقية</span> إحصاءات سعودية رسمية</h3><p style="font-size:15px">الإحصاء، والتعداد، والإسكان، والبنك المركزي: بنينا عليها الأسر التجريبية (الجدول).</p></div>
+      <div class="glass"><h3><span class="tag t-low">حقيقية</span> <span class="num">2,973</span> أسرة مفتوحة</h3><p style="font-size:15px">بيانات بنك التنمية للبلدان الأمريكية (Kaggle) مع مستوى فقر كل أسرة: <b>لاختبار الطريقة</b> على أسر حقيقية.</p></div>
+      <div class="glass"><h3><span class="tag">تجريبية</span> <span class="num">3,000</span> أسرة</h3><p style="font-size:15px">بيانات الأسر السعودية الفردية سرية، فولّدنا أسرًا بخانات القالب السعودي (seed=42) لتعليم النموذج. 11 مرجعًا موثّقًا.</p></div>
     </div>
   </div>
   <div class="foot"><span>أولويات الدعم</span><span class="num">5</span></div>
@@ -251,8 +252,27 @@
       <div class="note green" style="font-size:15px"><div><b>لا خلط بين «عالية» و«منخفضة».</b> كل الأخطاء بين فئتين متجاورتين، والحالات التي تقل ثقة النموذج فيها عن 60% تُعلَّم للمراجعة.</div></div>
     </div>
   </div>
-  <div class="note" style="margin-top:14px;font-size:15px"><div>الوسوم مشتقة من معادلة الدرجتين، فالدقة تقيس تعلّم المنهجية. <b>الدقة الحقيقية تُقاس بمقارنة النموذج بقرارات الجمعية.</b></div></div>
+  <div class="note" style="margin-top:14px;font-size:15px"><div>على أسر تجريبية: الوسوم مشتقة من معادلة الدرجتين، فالدقة تقيس تعلّم المنهجية. <b>الاختبار على أسر حقيقية في الشريحة التالية.</b></div></div>
   <div class="foot"><span>أولويات الدعم</span><span class="num">9</span></div>
+</section>
+
+<!-- 10 Real data -->
+<section class="slide">
+  <div class="crit">المعيار 3 — صحة التحليل على بيانات حقيقية</div>
+  <h2 style="margin-bottom:12px">على 2,973 أسرة حقيقية: هل تكشف عواملنا الفقر؟</h2>
+  <div class="grid2" style="grid-template-columns:1fr 1.1fr;align-items:start">
+    <div style="display:grid;gap:12px">
+      <div class="glass stat"><span>أسر فقيرة فعلًا في الربع الذي يختاره مؤشر الحاجة (أوزان ثابتة، دون تعلّم)</span><b class="num">22% ← 47%</b><span>الاختيار العشوائي ← مؤشرنا (الضعف)</span></div>
+      <div class="glass" style="padding:10px 14px"><table><thead><tr><th>نموذج الانحدار اللوجستي (595 أسرة)</th><th class="n">تخمين «منخفضة»</th><th class="n">نموذجنا</th></tr></thead><tbody>
+        <tr><td>اكتشاف الأسر الفقيرة</td><td class="n">0%</td><td class="n win">59%</td></tr>
+        <tr><td>F1 (متوسط الفئات)</td><td class="n">26%</td><td class="n win">56%</td></tr>
+        <tr><td>اكتشاف الفقيرة: مدن / أرياف</td><td class="n" colspan="2">66% / <b style="color:var(--high-ink)">44%</b></td></tr>
+      </tbody></table></div>
+    </div>
+    <img class="fig" src="../figures/real_index_by_level.png" alt="">
+  </div>
+  <div class="note" style="margin-top:12px;font-size:15px"><div>بيانات مفتوحة نشرها بنك التنمية للبلدان الأمريكية، <b>بلا دخل ولا أقساط</b>، لذا هي أصعب من التجريبية (59% مقابل 87%). <b>فجوة نعلنها:</b> الأرياف. التحقق النهائي على أسر الجمعية في التجربة الموازية.</div></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">10</span></div>
 </section>
 
 <!-- 10 Reproducibility -->
@@ -263,7 +283,7 @@
   <div class="grid4">
     <div class="glass stat"><b class="num">42</b><span>بذرة ثابتة في التوليد والقسمة والتحقق</span></div>
     <div class="glass stat"><b class="num">=</b><span>بصمة SHA-256 متطابقة للبيانات والمقاييس بين تشغيلين</span></div>
-    <div class="glass stat"><b class="num">33</b><span>اختبارًا: الدرجات، والتحقق، والتنظيف، والتوزيع، والواجهة البرمجية</span></div>
+    <div class="glass stat"><b class="num">36</b><span>اختبارًا: الدرجات، والتحقق، والتنظيف، والتوزيع، والواجهة البرمجية</span></div>
     <div class="glass stat"><b class="num">1</b><span>ملف ميزات مشترك بين التدريب والموقع</span></div>
   </div>
   <ul class="clean" style="margin-top:20px">
@@ -271,7 +291,7 @@
     <li>الدفتر يُبنى ويُنفَّذ بسكربت، فلا خلايا قديمة أو نتائج منسوخة.</li>
     <li>الخادم يعيد الحساب ولا يثق بأي درجة قادمة من المتصفح.</li>
   </ul>
-  <div class="foot"><span>أولويات الدعم</span><span class="num">10</span></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">11</span></div>
 </section>
 
 <!-- 11 Responsible AI -->
@@ -282,21 +302,21 @@
     <div style="display:grid;gap:10px">
       <div class="glass" style="padding:14px 18px"><h3>الإنسان يقرر</h3><p style="font-size:15px">قرار المسؤول يغلب على النموذج في الترتيب والتوزيع، ولا إقصاء آلي.</p></div>
       <div class="glass" style="padding:14px 18px"><h3>الخصوصية من التصميم</h3><p style="font-size:15px">لا اسم ولا هوية، ولا قاعدة بيانات، والملف يُقرأ في الذاكرة فقط.</p></div>
-      <div class="glass" style="padding:14px 18px"><h3>ذكاء اصطناعي بضوابط</h3><p style="font-size:15px">استعنّا بـ Claude في البناء: لا بيانات حقيقية، وكل رقم من ملفات المخرجات، مع 33 اختبارًا ومراجعة مستقلة.</p></div>
+      <div class="glass" style="padding:14px 18px"><h3>ذكاء اصطناعي بضوابط</h3><p style="font-size:15px">استعنّا بـ Claude في البناء: لا بيانات أسر سعودية، والبيانات الحقيقية مفتوحة وبلا أسماء، وكل رقم من ملفات المخرجات، مع 36 اختبارًا.</p></div>
     </div>
     <div class="glass" style="padding:12px">
       <img class="fig" src="../figures/fairness.png" alt="">
       <p style="font-size:14px;margin-top:6px"><b>فجوة نعلنها:</b> اكتشاف العالية <span class="num">81%</span> للأسر المالكة مقابل <span class="num">95%</span> لذوي الإعاقة. نتابعها في التجربة الموازية.</p>
     </div>
   </div>
-  <div class="foot"><span>أولويات الدعم</span><span class="num">11</span></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">12</span></div>
 </section>
 
 <!-- 12 Tool -->
 <section class="slide">
   <h2 style="margin-bottom:14px">الأداة: لوحة قيادة زجاجية بلا تخزين</h2>
   <img class="shot" src="../screenshots/dashboard.png" alt="" style="height:500px;object-fit:cover;object-position:top">
-  <div class="foot"><span>أولويات الدعم</span><span class="num">12</span></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">13</span></div>
 </section>
 
 <!-- 13 Impact -->
@@ -313,7 +333,7 @@
     <div class="glass"><h3>كم تكفي الميزانية؟</h3><p style="font-size:16px">العجز الشهري الكلي <b class="num">6.74</b> مليون ريال، والدعم المقترح مع الاحتياطي الوقائي <b class="num">7.52</b> مليون. مليون ريال تغطي <b class="num">14.8%</b> من العجز (<b class="num">13.3%</b> من الدعم المقترح)، وتذهب أولًا للأولوية العالية.</p></div>
     <div class="note green" style="font-size:16px"><div><b>رسالة للمتبرع:</b> كل ريال يذهب أولًا لمن هم في الخطر، وكل أسرة لم تُغطَّ ظاهرة باسم رمزها لقرار المسؤول.</div></div>
   </div>
-  <div class="foot"><span>أولويات الدعم</span><span class="num">13</span></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">14</span></div>
 </section>
 
 <!-- 14 Recommendations -->
@@ -327,7 +347,7 @@
         <li><b>قرار أوزان الحاجة والمخاطر</b> (50/50 أم 60/40).</li>
         <li><b>نموذج موافقة للأسر</b> متوافق مع نظام حماية البيانات الشخصية.</li>
         <li><b>إعادة التدريب</b> على قرارات الجمعية الحقيقية.</li>
-        <li><b>مراقبة فجوة العدالة</b> لدى الأسر المالكة.</li>
+        <li><b>مراقبة فجوة العدالة</b> لدى الأسر المالكة وأسر الأرياف.</li>
       </ul></div>
     <div class="glass" style="padding:10px 14px"><table><thead><tr><th>المدة</th><th>المرحلة</th></tr></thead><tbody>
       <tr><td>الشهر 1</td><td>مراجعة الأوزان، والموافقات، والصلاحيات</td></tr>
@@ -336,19 +356,19 @@
       <tr><td>الشهر 6</td><td>قرار الاعتماد</td></tr>
     </tbody></table></div>
   </div>
-  <div class="foot"><span>أولويات الدعم</span><span class="num">14</span></div>
+  <div class="foot"><span>أولويات الدعم</span><span class="num">15</span></div>
 </section>
 
 <!-- 15 Closing -->
 <section class="slide cover">
   <h1 style="font-size:46px">التقييم يساعد الجمعية على أن تصل <span style="color:var(--blue)">أسرع وأعدل</span><br>والقرار يبقى دائمًا لها.</h1>
   <div class="grid4" style="margin-top:34px">
-    <div class="glass stat"><b class="num">2</b><span>درجتان مفسَّرتان</span></div>
+    <div class="glass stat"><b class="num">×2</b><span>أسر فقيرة مقارنة بالصدفة (أسر حقيقية)</span></div>
     <div class="glass stat"><b class="num">87%</b><span>F1 بنموذج قابل للتفسير</span></div>
     <div class="glass stat"><b class="num">120</b><span>أسرة وقائية بدل الصفر (بالعدد نفسه)</span></div>
     <div class="glass stat"><b class="num">0</b><span>بيانات مخزّنة</span></div>
   </div>
-  <p style="margin-top:14px;font-size:16px;color:var(--warn);font-weight:700">نتائج على بيانات تجريبية (3,000 أسرة مبنية على إحصاءات سعودية رسمية)</p>
+  <p style="margin-top:14px;font-size:16px;color:var(--warn);font-weight:700">87% و120: على 3,000 أسرة تجريبية مبنية على إحصاءات سعودية رسمية · ×2: على 2,973 أسرة حقيقية مفتوحة</p>
   <p class="authors">إعداد: مرام المطيري <span>|</span> ريم المطيري</p>
 </section>
 
